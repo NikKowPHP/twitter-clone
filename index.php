@@ -8,6 +8,16 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <div class="home-link-container">
+            <a class="home-link" href="index.php">Home</a>
+        </div>
+        <div class="header-buttons-container">
+            <button>For you</button>
+            <button>Following</button>
+        </div>
+        
+    </header>
     
 </body>
 </html>
