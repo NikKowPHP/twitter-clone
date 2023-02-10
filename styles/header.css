@@ -1,0 +1,10 @@
+.header-home-container {
+    width: 300px;
+    background-color: lightcoral;
+    padding-left: 16px;
+}
+.header-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
