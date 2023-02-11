@@ -1,10 +1,56 @@
+.home-link-container {
+    padding-bottom: 10px;
+}
+.home-link {
+    font-size: 20px;
+    font-weight: 700;
+}
 .header-home-container {
-    width: 300px;
-    background-color: lightcoral;
+    padding-top:10px;
+    border: 1px solid white;
     padding-left: 16px;
+    width: 580px;
 }
 .header-buttons-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.header-buttons-container div {
+    padding: 15px 50px;
+}
+.header-button-container:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+.header-buttons-container a {
+    font-family: 'Chirp', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: white;
+    background-color:transparent;
+    padding: 15px 50px;
+    border: none;
+    position: relative;
+}
+
+.header-buttons-container span:after {
+    content: "";
+    width: 35%;
+    border-bottom: 3px solid rgb(29, 155, 240);
+    opacity: 0;
+    transition: opacity 0.15s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.header-buttons-container a span.active:after {
+    opacity: 1;
+
+}
+.header-buttons-container div span:active:after {
+    opacity: 1;
+}
+.
+
+
 
