@@ -7,7 +7,7 @@
 }
 .header-home-container {
     padding-top:10px;
-    border: 1px solid white;
+    border: 1px solid black;
     padding-left: 16px;
     width: 580px;
 }
@@ -25,7 +25,6 @@
     font-family: 'Chirp', sans-serif;
     font-weight: 700;
     font-size: 15px;
-    color: white;
     background-color:transparent;
     padding: 15px 50px;
     border: none;
