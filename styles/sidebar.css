@@ -47,6 +47,9 @@
 .sidebar-nav-home {
     font-weight: 700;
 }
+.sidebar-nav-tweet-btn {
+    margin-bottom: 40px;
+}
 .sidebar-nav-tweet-btn a{
     color: white;
     font-weight: 700;
@@ -57,4 +60,35 @@
 }
 .sidebar-nav-tweet-btn a:hover {
     background-color: rgb(29, 131, 199);
+}
+.sidebar-profile-container {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.profile-info p {
+    margin: 0;
+}
+
+.sidebar-profile-image-container {
+    margin-right: 12px;
+    margin-left: 8px;
+}
+.sidebar-profile-image-container img {
+    width: 40px;
+    border-radius: 30px;
+}
+.sidebar-profile-more {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 15px;
+}
+.sidebar-profile-more img {
+    width: 18.75px;
+}
+.sidebar-profile-name {
+    font-weight: 700;
+    padding-bottom: 5px;
 }
