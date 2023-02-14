@@ -7,7 +7,7 @@
 }
 .header-home-container {
     padding-top:10px;
-    border: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
     padding-left: 16px;
     width: 580px;
 }

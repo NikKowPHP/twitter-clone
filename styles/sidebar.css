@@ -3,11 +3,10 @@
     left: 150px;
     width: 250px;
     top: 15px;
-    overflow-y: scroll;
     top: 0;
     bottom: 0;
     font-size: 20px;
-    border-right: 1px solid 
+    border-right: 1px solid rgba(0, 0, 0, 0.103);
 }
 .nav-links-container{
     display: flex;
