@@ -22,6 +22,10 @@
    display: flex;
    transition: background-color 0.15s;
 }
+.nav-links-container a svg {
+    height: 27px;
+    margin-right: 20px;
+}
 .sidebar-logo a:hover {
     background-color:rgba(29, 155, 240, 0.10);
 }
