@@ -1,6 +1,16 @@
+main {
+    max-width: 580px;
+    border-right: 1px solid rgba(0, 0, 0, 0.103);
+}
+section {
+    margin: 0;
+}
 .create-tweet-section {
-    border: 1px solid;
+    padding-top: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+    /* border-right: 1px solid rgba(0, 0, 0, 0.103); */
     display: flex;
+    
 }
 .create-tweet-content-container {
     display: flex;
@@ -9,9 +19,31 @@
 .create-tweet-tools-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
 }
 .create-tweet-tools svg {
     fill: rgb(81,178,243);
     width: 20px;
+    margin-left: 10px;
 }
+.create-tweet-image-container {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.create-tweet-image-container img {
+    width: 50px;
+    border-radius: 50%;
+}
+.create-tweet-text {
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Chirp';
+    /* font-weight: 500; */
+    color: #6e7c87;
+    padding-top:15px;
+}
+
 
