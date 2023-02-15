@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding-top: 135px;
+    padding-top: 110px;
     padding-left: 400px;
     font-family: 'Chirp', sans-serif;
     box-sizing: border-box;
@@ -24,4 +24,8 @@ a {
 
 .btn:hover {
     background-color: rgb(29, 131, 199);
+}
+.btn-disabled {
+    background-color: rgb(142,205,248);
+    
 }
