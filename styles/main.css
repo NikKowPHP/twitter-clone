@@ -1,3 +1,17 @@
 .create-tweet-section {
     border: 1px solid;
+    display: flex;
 }
+.create-tweet-content-container {
+    display: flex;
+    flex-direction: column;
+}
+.create-tweet-tools-container {
+    display: flex;
+    justify-content: space-between;
+}
+.create-tweet-tools svg {
+    fill: rgb(81,178,243);
+    width: 20px;
+}
+
