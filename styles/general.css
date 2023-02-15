@@ -11,11 +11,14 @@ a {
     color:inherit;
 }
 .btn {
+    font-family: "Chirp";
+    border: none;
     color: white;
     font-weight: 700;
-    /* padding: 15px 80px; */
+    font-size: 15px;
+    padding: 10px 15px;
     background-color: rgb(29, 155, 240);
-    border-radius: 25px;
+    border-radius: 20px;
     transition: background-color 0.20s;
 }
 
