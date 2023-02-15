@@ -45,5 +45,18 @@ section {
     color: #6e7c87;
     padding-top:15px;
 }
+/* new tweet END */
+
+/* show new Tweets */
+
+.show-new-tweets-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+    color: rgb(50, 168, 246);
+}
+
+/* show new tweets END */
 
 
