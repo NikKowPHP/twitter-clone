@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding-top: 110px;
+    padding-top: 100px;
     padding-left: 400px;
     font-family: 'Chirp', sans-serif;
     box-sizing: border-box;
@@ -11,6 +11,7 @@ a {
     color:inherit;
 }
 .btn {
+    box-sizing: border-box;
     font-family: "Chirp";
     border: none;
     color: white;
