@@ -3,8 +3,10 @@ body {
     padding-top: 135px;
     padding-left: 400px;
     font-family: 'Chirp', sans-serif;
+    box-sizing: border-box;
 }
 a {
+    font-family: 'Chirp', sans-serif;
     text-decoration: none;
     color:inherit;
 }
