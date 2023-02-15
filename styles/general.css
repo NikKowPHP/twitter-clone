@@ -10,3 +10,15 @@ a {
     text-decoration: none;
     color:inherit;
 }
+.btn {
+    color: white;
+    font-weight: 700;
+    /* padding: 15px 80px; */
+    background-color: rgb(29, 155, 240);
+    border-radius: 25px;
+    transition: background-color 0.20s;
+}
+
+.btn:hover {
+    background-color: rgb(29, 131, 199);
+}
