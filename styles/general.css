@@ -30,3 +30,12 @@ a {
     background-color: rgb(142,205,248);
     
 }
+.dimmed-text {
+    color:rgb(120,134,144);
+}
+.link, .hashtag {
+    color: rgb(72,174,243);
+}
+.link, .hashtag:hover {
+    text-decoration: underline;
+}
