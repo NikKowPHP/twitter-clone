@@ -58,5 +58,56 @@ section {
 }
 
 /* show new tweets END */
+.post {
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+}
+.channel-image {
+    padding-right: 10px;
+}
+.post-header {
+    display:flex;
+    align-items: flex-start ;
+    justify-content: space-between;
+
+}
+.post-header-info > * {
+    margin-right: 3px;
+}
+.channel-name {
+    font-weight: 700;
+}
+.post-header-more {
+    margin-right: 15px;
+}
+.post-header-info {
+    display: flex;
+
+}
+.post-description {
+    max-width: 90%;
+}
+.post-image img{
+    width: 96%;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+    box-sizing: content-box;
+}
 
 
+.post-tools {
+    padding-top: 10px;
+    display:flex;
+    align-items: flex-start;
+}
+.post-header-more svg {
+    width: 18px;
+}
+.post-tools svg {
+    width: 18px;
+    margin-right: 80px;    
+    padding-bottom: 10px;
+    
+}
