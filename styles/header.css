@@ -1,7 +1,10 @@
 .header-container {
     position: fixed;
-    top: 5px;
+    top: 0;
+    padding-top: 5px;
     display: flex;
+    /* background-color:rgb(255,255,255); */
+    backdrop-filter: blur(20px);
 }
 .header-center-container {
     margin-top:10px;
