@@ -2,8 +2,8 @@
     position: fixed;
     top: 0;
     padding-top: 5px;
-    background-color:rgb(255,255,255);
-    backdrop-filter: blur(20px);
+    /* background-color:rgb(255,255,255); */
+    backdrop-filter: blur(30px);
     padding-top:10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.103);
     border-right: 1px solid rgba(0, 0, 0, 0.103);
