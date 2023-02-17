@@ -5,6 +5,11 @@ body {
     font-family: 'Chirp', sans-serif;
     box-sizing: border-box;
 }
+@media (max-width: 900px) {
+    body {
+        padding-left: 300px;
+    }
+}
 a {
     font-family: 'Chirp', sans-serif;
     text-decoration: none;

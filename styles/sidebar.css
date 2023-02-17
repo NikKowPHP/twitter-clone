@@ -8,6 +8,11 @@
     font-size: 20px;
     border-right: 1px solid rgba(0, 0, 0, 0.103);
 }
+@media (max-width: 900px) {
+    .sidebar-nav {
+        left: 50px;
+    }
+}
 .nav-links-container{
     display: flex;
     flex-direction: column;
