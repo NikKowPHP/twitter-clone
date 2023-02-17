@@ -27,6 +27,9 @@
    display: flex;
    transition: background-color 0.15s;
 }
+.sidebar-logo svg {
+    fill:rgb(29, 155, 240);
+}
 .nav-links-container a svg {
     height: 27px;
     margin-right: 20px;
