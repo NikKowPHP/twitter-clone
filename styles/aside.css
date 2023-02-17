@@ -31,16 +31,44 @@
 .search-bar-icon svg {
     width: 18px;
 }
-.hashtag-more svg {
+.hashtags-container svg {
     width: 18px;
 }
 .hashtags-container {
   background-color: rgb(247,249,249);
   padding-left: 15px; 
-
+  margin-left: 30px;
+  margin-top: 20px;
+  border-radius: 20px;
 }
 .hashtags-header h6 {
   font-size: 20px;
   font-weight: 800;
   line-height: 24px;
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+.hashtag-container {
+  padding-bottom: 20px;
+}
+.hashtag-header {
+  display: flex;
+  justify-content: space-between;
+}
+.hashtag-header span {
+  font-size: 13px;
+  font-weight: 400;
+}
+.hashtag-header svg {
+  padding-right: 10px;
+}
+.hashtag-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  
+}
+.hashtag-number {
+  font-size: 13px;
+  font-weight: 400;
 }
