@@ -63,6 +63,7 @@
 }
 .sidebar-nav-tweet-btn a{
     color: white;
+    font-size: 17px;
     font-weight: 700;
     padding: 15px 80px;
     background-color: rgb(29, 155, 240);
@@ -102,4 +103,8 @@
 .sidebar-profile-name {
     font-weight: 700;
     padding-bottom: 5px;
+}
+.show-more {
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
