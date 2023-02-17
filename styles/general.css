@@ -44,3 +44,6 @@ a {
 .link, .hashtag:hover {
     text-decoration: underline;
 }
+.content-container {
+    display: flex;
+}
