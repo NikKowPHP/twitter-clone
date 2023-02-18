@@ -31,22 +31,29 @@
 .search-bar-icon svg {
     width: 18px;
 }
-.hashtags-container svg {
-    width: 18px;
-}
-.hashtags-container {
+
+/* aside-section */
+.aside-section {
   background-color: rgb(247,249,249);
   padding-left: 15px; 
   margin-left: 30px;
   margin-top: 20px;
   border-radius: 20px;
 }
-.hashtags-header h6 {
+.aside-section-header h6 {
   font-size: 20px;
   font-weight: 800;
   line-height: 24px;
   padding-top: 15px;
   margin-bottom: 20px;
+}
+
+/* aside-section END */
+
+/* hashtags */
+
+.hashtag-container svg {
+    width: 18px;
 }
 .hashtag-container {
   padding-bottom: 20px;
@@ -71,4 +78,31 @@
 .hashtag-number {
   font-size: 13px;
   font-weight: 400;
+}
+
+/* who to follow section */
+
+.channel-container {
+  margin-bottom: 20px;
+  display: flex;
+  padding-bottom: 15px;
+  align-items: center;
+}
+.channel-image img {
+  width: 30px;
+}
+.follow-btn-container{
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+.follow-btn {
+  background-color: rgb(15,20,25);
+}
+.channel-image {
+  margin-right: 5px;
+}
+.show-more-btn {
+  padding-bottom: 15px;
 }
