@@ -74,11 +74,24 @@
     background-color: rgb(29, 131, 199);
 }
 .sidebar-profile-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+
     position: relative;
     display: flex;
     align-items: center;
     font-size: 15px;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.sidebar-profile-container:hover {
+    background-color:rgba(15, 20, 25, 0.1);
+}
+.sidebar-active {
+    background-color:rgba(15, 20, 25, 0.1);
 }
 .profile-info p {
     margin: 0;
@@ -98,7 +111,7 @@
     flex: 1;
     margin-right: 15px;
 }
-.sidebar-profile-more img {
+.sidebar-profile-more svg{
     width: 18.75px;
 }
 .sidebar-profile-name {
@@ -118,9 +131,12 @@
   background-color: white;
     box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  top:-140px;
+  top:-120px;
   left: -30px;
   width: 300px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
 }
 .sidebar-profile-tooltip::after {
     content: "";
