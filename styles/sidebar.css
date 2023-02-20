@@ -8,13 +8,13 @@
     font-size: 20px;
     border-right: 1px solid rgba(0, 0, 0, 0.103);
 }
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     body {
-        padding-left:160px;
+        padding-left:100px;
     }
     .sidebar-nav {
-        left: 80px;
-        width: 80px;
+        left: 30px;
+        width: 70px;
     }
     .nav-links-container span {
         display: none;
