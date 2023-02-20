@@ -9,10 +9,32 @@
     border-right: 1px solid rgba(0, 0, 0, 0.103);
 }
 @media (max-width: 900px) {
+    body {
+        padding-left:160px;
+    }
     .sidebar-nav {
-        left: 50px;
+        left: 80px;
+        width: 80px;
+    }
+    .nav-links-container span {
+        display: none;
+    }
+
+    .nav-links-container a svg {
+        margin: 0 !important;
+    }
+    .profile-info,
+    .sidebar-profile-more svg{
+        display: none;
+    }
+#small-tweet-btn {
+    display: flex !important;
+}
+    #big-tweet-btn {
+        display: none;
     }
 }
+/* TODO: media queries */
 .nav-links-container{
     display: flex;
     flex-direction: column;
@@ -61,7 +83,7 @@
 .sidebar-nav-tweet-btn {
     margin-bottom: 40px;
 }
-.sidebar-nav-tweet-btn a{
+ #big-tweet-btn{
     color: white;
     font-size: 17px;
     font-weight: 700;
@@ -70,7 +92,23 @@
     border-radius: 25px;
     transition: background-color 0.20s;
 }
-.sidebar-nav-tweet-btn a:hover {
+#small-tweet-btn {
+    /* display: flex; */
+    display: none;
+    background-color: rgb(29, 155, 240);
+    padding: 14px;  
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    border-radius: 50%;
+}
+
+#small-tweet-btn svg {
+    width: 24px;
+    fill: white;
+}
+.sidebar-nav-tweet-btn a:hover,
+#small-tweet-btn:hover {
     background-color: rgb(29, 131, 199);
 }
 .sidebar-profile-container {
