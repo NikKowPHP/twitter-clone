@@ -10,7 +10,7 @@
 }
 @media (max-width: 1200px) {
     body {
-        padding-left:100px;
+        padding-left:100px !important;
     }
     .sidebar-nav {
         left: 30px;
@@ -33,6 +33,34 @@
     #big-tweet-btn {
         display: none;
     }
+}
+
+@media (max-width: 1350px) {
+
+    body {
+        padding-left: 280px;
+    }
+    .sidebar-nav {
+        left: 30px;
+    }
+}
+@media (max-width: 1015px) {
+    body {
+        padding-left:200px !important;
+    }
+    header {
+        display: flex;
+    }
+    .sidebar-nav {
+        /* TODO: change sidebar position to sticky */
+        left: 100px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        
+    }
+
 }
 /* TODO: media queries */
 .nav-links-container{

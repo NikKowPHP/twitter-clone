@@ -1,6 +1,14 @@
 /* SEARCH BAR STYLES */
-@media screen {
+@media (min-width: 1350px){
   
+  aside {
+    max-width: 350px !important;
+  }
+}
+@media (max-width: 1020px) {
+  aside {
+    display: none !important;
+  }
 }
 aside {
   margin-right: 30px;
