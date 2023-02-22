@@ -183,3 +183,28 @@ section {
     padding-bottom: 10px;
     
 }
+
+/* login-page */
+
+.login-main-tweets {
+    padding-left: 20px;
+}
+.login-searchbar-settings svg{
+    width: 27px;
+}
+.login-searchbar-settings {
+    width: 80px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+
+}
+.login-searchbar-container {
+    display:flex !important;
+    align-items: center !important;
+}
+.login-searchbar-container .search-bar {
+    width: 300px !important;
+    flex: 1;
+}
+
