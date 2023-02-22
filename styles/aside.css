@@ -138,3 +138,47 @@ aside .channel-image {
 .terms-data {
   background-color: white;
 }
+
+/* Login-aside */
+
+.login-aside-section {
+  background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.103);
+}
+.login-option-image img {
+  width: 25px !important;
+  border-radius: 50%;
+}
+.login-option {
+    border: 1px solid rgba(0, 0, 0, 0.103);
+    border-radius: 20px;
+    padding: 5px 0px 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+.login-option-apple {
+  padding: 10px;
+}
+.login-option-apple .login-option-image {
+  margin-right: 5px;
+  padding-right: 0;
+}
+.login-option svg {
+  width: 18px;
+}
+.login-disclamier {
+  margin-top: 15px;
+  font-size: 13px;
+  margin-right: 20px;
+  padding-bottom: 20px;
+}
+.login-terms-data {
+  margin-right: 20px;
+
+}
+.login-terms-data a {
+  margin-right: 5px;
+}
