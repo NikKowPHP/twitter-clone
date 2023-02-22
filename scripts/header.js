@@ -1,14 +1,7 @@
-const border_line = document.createElement("div");
-const home_elements_container = document.getElementById("header-buttons");
-const home_elements = document.getElementsByClassName("header-button-container");
-
-for(var i = 0; i < home_elements.length; i++) {
-    home_elements[i].addEventListener("click", function() {
-        var current = document.getElementsByClassName("header-button active");
-        var child = this.querySelector(".header-button")
-        current[0].className = current[0].className.replace(" active", "");
-
-        // this.className += " active";
-        child.className += " active";
+const header_links = document.querySelectorAll(".header-button-link");
+header_links.forEach(link => {
+    link.addEventListener('click', function() {
+        header_links.forEach(l => l.classList.remove("active-home-link"));
+        this.classList.add("active-home-link");
     })
-}
+})
