@@ -91,3 +91,43 @@
     margin-bottom: 30px;
 }
 
+/* modal register */
+/* TODO: finish modal register and start backend */
+.modal-content-register {
+    justify-content: flex-start;
+    width: 600px;
+}
+.modal-content-register .modal-body{
+    align-items: flex-start;
+    padding-left: 50px;
+    padding-top: 50px;
+    width: 450px;
+}
+.modal-body input {
+    font-size: 17px;
+    width: 100%;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.144);
+}
+.modal-body input:focus::placeholder {
+    color: transparent;
+}
+
+.modal-body label {
+    font-size: 16px;
+    font-weight: 700;
+}
+.modal-body label.active {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #999;
+}
+
+.btn-register-submit {
+    border-radius: 20px !important;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
