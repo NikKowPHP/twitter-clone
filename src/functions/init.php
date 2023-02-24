@@ -1,6 +1,7 @@
 <?php 
 define("ROOT", "/twitter-clone/");
 define("DS", DIRECTORY_SEPARATOR);
-// require_once(ROOT.DS. 'src/classes')
-
+define("CLASSES", ROOT . DS . 'src' . DS . 'classes');
+require_once(CLASSES . DS . 'Db_object.php');
+require_once(CLASSES . DS . 'User.php');
 ?>
