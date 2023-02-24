@@ -259,7 +259,7 @@
         <div class="modal-body">
           <h3>Create an account</h3>
 
-          <form action="login_page.html" method="POST">
+          <form action="login_page.php" method="POST">
 
 
           <label for="register_username" id="register_username_label">name</label>
