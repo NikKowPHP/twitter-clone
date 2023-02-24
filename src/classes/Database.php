@@ -13,9 +13,17 @@ class Database {
             die("Connection failed: " . $this->conn->connect_errno);
         }
     }
-    public function query(string $sql) {
+    public function query(string $sql){
         $query = $this->conn->query($sql);
-        echo gettype($query);
+        return $this->confirm_query($query);
+
+    }
+    private function confirm_query($query) {
+        if(!$query) {
+            die("query failed " . $this->conn->error);
+        } else {
+            return $query;
+        }
     }
 
 
