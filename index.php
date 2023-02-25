@@ -147,9 +147,7 @@
           </a>
         </div>
         <div class="sidebar-nav-tweet-btn">
-          <!-- TODO: 
-            1)add class btn to all btns
-            2) display: block for btn -->
+          <!-- TODO: 1)add class btn to all btns 2) display: block for btn -->
           <a id="big-tweet-btn" href="#">Tweet</a>
 
           <a id="small-tweet-btn"  href="#">

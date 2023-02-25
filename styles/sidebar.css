@@ -52,7 +52,6 @@
         display: flex;
     }
     .sidebar-nav {
-        /* TODO: change sidebar position to sticky */
         left: 100px;
         width: 100px;
         display: flex;
