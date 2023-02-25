@@ -28,6 +28,10 @@ class Db_object
         $sql = "SELECT * FROM " . static::$db_table_name;
         return static::get_data_by_query($sql);
     }
+    public static function get_by_id(int $id) {
+        $sql = "SELECT * FROM " . static::$db_table_name . " WHERE id= {$id} LIMIT 1";
+        return static::get_data_by_query($sql)[0];
+    }
 
 }
 
