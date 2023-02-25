@@ -7,6 +7,10 @@ class Database {
     public $conn;
 
 
+    function __construct() {
+        $this->open_connection();
+
+    }
     public function open_connection() {
         $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if($this->conn->connect_errno) {
@@ -14,16 +18,10 @@ class Database {
         }
     }
     public function query(string $sql){
-        $query = $this->conn->query($sql);
-        return $this->confirm_query($query);
-
-    }
-    private function confirm_query($query) {
-        if(!$query) {
-            die("query failed " . $this->conn->error);
-        } else {
-            return $query;
+        if($result = $this->conn->query($sql)) {
+            return $result;
         }
+
     }
 
 
