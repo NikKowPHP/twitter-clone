@@ -32,6 +32,17 @@ class Db_object
         $sql = "SELECT * FROM " . static::$db_table_name . " WHERE id= {$id} LIMIT 1";
         return static::get_data_by_query($sql)[0];
     }
+    public static function iterate_through_post(array $post):self 
+    {
+        $obj_props = static::$db_fields;
+        $obj_array = [];
+        foreach($post as $key => $value) {
+            if(in_array($key,$obj_props)) {
+               $obj_array[$key] = $value; 
+            }
+        }
+        return static::instantiate($obj_array);
+    }
 
 }
 
