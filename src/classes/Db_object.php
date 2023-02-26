@@ -44,6 +44,27 @@ class Db_object
         }
         return static::instantiate($obj_array);
     }
+    protected function properties(): array
+    {
+        global $database;
+        $props = [];
+        foreach(static::$db_fields as $field) {
+            if(property_exists($this, $field)) {
+                $props[$field] = $database->conn->real_escape_string($this->$field);
+            }
+        }
+        return $props;
+    }
+
+    public function create(): bool
+    {
+        $props = $this->properties();
+        global $database;
+        $sql = "INSERT INTO " . static::$db_table_name . " (" . implode(', ', array_keys($props)). ")" 
+                . " VALUES ('" . implode("', '", array_values($props)) . "')";
+                print_r($sql);
+        return $database->query($sql) ? true : false;
+    }
 
 }
 
