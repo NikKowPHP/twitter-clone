@@ -34,11 +34,12 @@ class Db_object
     }
     public static function iterate_through_post(array $post):self 
     {
+        global $database;
         $obj_props = static::$db_fields;
         $obj_array = [];
         foreach($post as $key => $value) {
             if(in_array($key,$obj_props)) {
-               $obj_array[$key] = $value; 
+               $obj_array[$key] = $database->conn->real_escape_string($value); 
             }
         }
         return static::instantiate($obj_array);
