@@ -2,7 +2,7 @@
 
 use function PHPSTORM_META\type;
 
-require_once('../../config/db_config.php');
+require_once('C:\MAMP\htdocs\twitter-clone\config\db_config.php');
 class Database {
     public $conn;
 
