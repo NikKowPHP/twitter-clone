@@ -2,11 +2,13 @@
 
 class User extends Db_object{
     protected static string $db_table_name = "users";
-    protected static array $db_fields = ['username', 'password', 'email'];
+    protected static array $db_fields = ['username', 'password', 'email', 'token', 'active'];
     public ?int $id;
     public ?string $username;
     public ?string $password;
     public ?string $email;
+    public ?string $token;
+    public ?bool $active;
 
    public function encrypt_password() {
         $blowfish_hash_format = "$2y$10$";
@@ -23,10 +25,23 @@ class User extends Db_object{
         $salt = substr($modified_base64_str,0, $length);
         return $salt;
     }
-    public function password_check($password, $existing_hash) {
+    public function check_password($password, $existing_hash) {
         $hash = crypt($password, $existing_hash);
         if($hash === $existing_hash) {
             return true;
+        } else {
+            return false;
+        }
+    }
+    public function check_email():bool
+    {
+        global $database;
+        $sql = "SELECT * FROM users WHERE email = '$this->email'";
+
+        $result = $database->query($sql);
+        if($result->num_rows > 0) {
+            return true;
+
         } else {
             return false;
         }
