@@ -3,6 +3,7 @@ session_start();
 
 class Session {
     private ?string $message;
+    private ?int $user_id = null;
 
     function __construct() {
         if(isset($_SESSION['message'])) {
@@ -10,6 +11,14 @@ class Session {
         } else {
             $this->message = null;
         }
+        if(isset($_SESSION['user_id'])) {
+            $this->user_id = $_SESSION['user_id'];
+        }
+    }
+    public function set_user_id($user_id)
+    {
+        $this->user_id = $_SESSION['user_id'];
+        $_SESSION['user_id'] = $user_id;
     }
 
     public function set_message($message):void
