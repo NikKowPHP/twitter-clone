@@ -1,3 +1,4 @@
+<?php require_once("src/functions/init.php")?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,12 +73,6 @@
 
         <section class="posts login-main-tweets">
 
-          <!-- <div class="login-main-tweets-header">
-            <h4>Most popular for you</h4>
-
-          </div> -->
-
-          <!-- TWEETS -->
 
           <div class="aside-section-header hashtags-header">
             <h6>Most popular for you</h6>
@@ -191,7 +186,7 @@
         <p>Twitter users are the first to know.</p>
       </div>
       <div class="login-footer-links">
-        <a href="#" class="btn login-btn">Log in</a>
+        <a href="#" id="login-btn-modal" class="btn login-btn">Log in</a>
         <a href="#" id="register_modal" class="btn register-btn">register</a>
       </div>
 
@@ -253,26 +248,83 @@
 
 
 
+
+
+
+    <div id="modal-login" class="modal modal-register modal-login">
+      <div class="modal-content modal-content-register">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+
+
+
+          <pre>
+
+          <?php 
+          
+          ?>
+          </pre>
+                
+          <h3>Log in into your account</h3>
+
+          <form action="src/includes/login_verification.php" method="POST">
+
+                <input type="email" name="email"  placeholder="E-mail">
+                <input type="password" name="password"  placeholder="Password">
+                <input type="submit" value="Log in" name="login_submit" class="btn btn-register-submit">
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
     <div id="modal-register" class="modal modal-register">
       <div class="modal-content modal-content-register">
         <span class="close">&times;</span>
         <div class="modal-body">
-          <h3>Create an account</h3>
 
+          <pre>
+
+          <?php 
+          if(isset($_POST['register_submit'])) {
+           $user = User::iterate_through_post($_POST);
+           $user->token =bin2hex(openssl_random_pseudo_bytes(40));
+           $user->encrypt_password();
+           $user->active = 1;
+
+           if($user->create()) {
+            $session->set_message("you have created a user");
+           }
+
+          }
+          
+          ?>
+          </pre>
+
+
+          <h3>Create your account</h3>
+
+
+            <?php echo $session->get_message() ?>
+
+
+            
           <form action="login_page.php" method="POST">
 
+                <input type="text" name="username"  placeholder="Name">
+                <input type="email" name="email"  placeholder="E-mail">
+                <input type="password" name="password"  placeholder="Password">
+                <input type="submit" value="Sign Up" name="register_submit" class="btn btn-register-submit">
 
-          <label for="register_username" id="register_username_label">name</label>
-                <input type="text" id="register_username" placeholder="Name">
-                <label for="register_email">email</label>
-
-                <input type="text" id="register_email" placeholder="E-mail">
-
-                <label for="register_password">register_password</label>
-                <input type="password" id="register_password" placeholder="Password">
-
-                <input type="submit" class="btn btn-register-submit">
           </form>
+                
+
 
         </div>
       </div>
