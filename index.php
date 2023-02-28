@@ -1,3 +1,12 @@
+<?php require_once('C:\MAMP\htdocs\twitter-clone\src\functions\init.php'); ?>
+<?php 
+
+$user = '';
+$user_id = $session->get_user_id();
+if(isset($user_id)) {
+  $user = User::get_by_id($user_id);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -160,7 +169,7 @@
             <img src="icons/default_profile.png" alt="" />
           </div>
           <div class="profile-info">
-            <p class="sidebar-profile-name">NikKowPHP</p>
+            <p class="sidebar-profile-name"><?php echo $user->username; ?></p>
             <p class="sidebar-profile-username">@NikKowPHP</p>
           </div>
           <div class="sidebar-profile-more">
