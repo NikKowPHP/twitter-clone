@@ -20,6 +20,11 @@ class Session {
         $this->user_id = $_SESSION['user_id'];
         $_SESSION['user_id'] = $user_id;
     }
+    public function get_user_id():int
+    {
+        return $this->user_id;
+    }
+
 
     public function set_message($message):void
     {
