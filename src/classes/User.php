@@ -11,10 +11,12 @@ class User extends Db_object{
     public ?string $token;
     public ?bool $active;
 
-   public function encrypt_password() {
+   public function encrypt_password():void
+    {
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
     }
-    private function check_password($db_password) {
+    private function check_password(string $db_password):bool
+     {
         return password_verify($this->password, $db_password);
     }
 
