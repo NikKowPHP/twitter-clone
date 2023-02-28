@@ -1,5 +1,10 @@
+const modal_login = document.querySelector("#modal-login");
+
 const modal = document.querySelector("#modal");
 const register_btn = document.querySelector("#register_modal");
+const login_btn = document.querySelector("#login-btn-modal");
+
+
 const close_btn = document.querySelector(".close");
 
 const registration_modal = document.querySelector("#modal-register");
@@ -12,14 +17,14 @@ const register_password_input = document.querySelector("#register_password");
 
 const register_username_label = document.querySelector("#register_username_label")
 
-register_username_input.addEventListener('input', () => {
-    if(input.value) {
-        console.log(input.value);
-        register_username_label.classList.add('active');
-    } else {
-        label.classList.remove('active');
-    }
-})
+login_btn.addEventListener('click', () => {
+    modal_login.style.display = 'block';
+});
+
+
+
+
+
 create_acc_btn.addEventListener('click', () => {
     registration_modal.style.display = 'block';
     modal.style.display = 'none';
