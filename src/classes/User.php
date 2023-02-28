@@ -1,4 +1,5 @@
 <?php 
+require_once("Session.php");
 
 class User extends Db_object{
     protected static string $db_table_name = "users";
@@ -11,38 +12,28 @@ class User extends Db_object{
     public ?bool $active;
 
    public function encrypt_password() {
-        $blowfish_hash_format = "$2y$10$";
-        $salt_length = 22;
-        $salt = $this->generate_salt($salt_length);
-        $formatted_salt = $blowfish_hash_format . $salt;
-        $this->password = crypt($this->password, $formatted_salt);
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
     }
-    protected function generate_salt($length) 
-    {
-        $random_str = md5(uniqid(mt_rand(), true));
-        $base64_str = base64_encode($random_str);
-        $modified_base64_str = str_replace('+', '.', $base64_str);
-        $salt = substr($modified_base64_str,0, $length);
-        return $salt;
+    private function check_password($db_password) {
+        return password_verify($this->password, $db_password);
     }
-    public function check_password($password, $existing_hash) {
-        $hash = crypt($password, $existing_hash);
-        if($hash === $existing_hash) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public function check_email():bool
+
+    public function check():bool
     {
         global $database;
+        global $session;
         $sql = "SELECT * FROM users WHERE email = '$this->email'";
-
-        $result = $database->query($sql);
-        if($result->num_rows > 0) {
-            return true;
+        if($db_user = parent::get_data_by_query($sql)[0]) {
+            if($this->check_password($db_user->password)) {
+                $session->set_user_id($db_user->id);
+                return true;
+            } else {
+                $session->set_message("wrong password");
+                return false;
+            }
 
         } else {
+            $session->set_message("A user with this email does not exists");
             return false;
         }
     }

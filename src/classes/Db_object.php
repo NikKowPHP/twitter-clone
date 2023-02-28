@@ -14,7 +14,7 @@ class Db_object
         return $obj;
 
     }
-    private static function get_data_by_query($sql)
+    protected static function get_data_by_query($sql)
     {
         global $database;
         $objects_arr = [];
