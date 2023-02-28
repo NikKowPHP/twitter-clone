@@ -17,8 +17,8 @@ class Session {
     }
     public function set_user_id($user_id)
     {
-        $this->user_id = $_SESSION['user_id'];
         $_SESSION['user_id'] = $user_id;
+        $this->user_id = $_SESSION['user_id'];
     }
     public function get_user_id():int
     {
@@ -28,8 +28,8 @@ class Session {
 
     public function set_message($message):void
     {
-        $this->message = $message;
         $_SESSION['message'] = $message;
+        $this->message = $message;
     }
 
     public function get_message(): ?string
