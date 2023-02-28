@@ -8,4 +8,5 @@ require_once(CLASSES . DS . "Session.php");
 require_once(CLASSES . DS . "Database.php");
 require_once(CLASSES . DS . 'Db_object.php');
 require_once(CLASSES . DS . 'User.php');
+require_once(ROOT .DS."src".DS."functions".DS. "functions.php");
 ?>
