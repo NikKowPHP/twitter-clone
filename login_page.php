@@ -292,30 +292,16 @@
           <pre>
 
           <?php 
-          if(isset($_POST['register_submit'])) {
-           $user = User::iterate_through_post($_POST);
-           $user->token =bin2hex(openssl_random_pseudo_bytes(40));
-           $user->encrypt_password();
-           $user->active = 1;
-
-           if($user->create()) {
-            $session->set_message("you have created a user");
-           }
-
-          }
           
           ?>
           </pre>
-
 
           <h3>Create your account</h3>
 
 
             <?php echo $session->get_message() ?>
 
-
-            
-          <form action="login_page.php" method="POST">
+          <form action="src/includes/register.php.php" method="POST">
 
                 <input type="text" name="username"  placeholder="Name">
                 <input type="email" name="email"  placeholder="E-mail">
