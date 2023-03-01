@@ -163,7 +163,7 @@
                   </svg>
           </div>
 
-          <div id="sidebar_profile_tooltip" class="tooltip sidebar-profile-tooltip hidden">
+          <div id="sidebar_profile_tooltip" class="tooltip sidebar-profile-tooltip">
             <a href="#">Add an existing account</a>
             <a href="#">Log out @NikKowPHP</a>
           </div>
