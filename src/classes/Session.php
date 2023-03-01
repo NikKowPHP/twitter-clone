@@ -52,6 +52,10 @@ class Session {
         unset($_SESSION['message']);
         unset($_SESSION['user_id']);
     }
+    public function logged_in():bool
+    {
+        return isset($this->user_id) ? true: false;
+    }
 }
 $session = new Session();
 
