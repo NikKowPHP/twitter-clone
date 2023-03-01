@@ -165,7 +165,7 @@
 
           <div id="sidebar_profile_tooltip" class="tooltip sidebar-profile-tooltip">
             <a href="#">Add an existing account</a>
-            <a href="#">Log out @NikKowPHP</a>
+            <a href="src/includes/logout.php">Log out @<?php echo $user->username; ?></a>
           </div>
 
         </div>
