@@ -20,7 +20,7 @@ class Session {
         $_SESSION['user_id'] = $user_id;
         $this->user_id = $_SESSION['user_id'];
     }
-    public function get_user_id():int
+    public function get_user_id():?int
     {
         return $this->user_id;
     }
@@ -44,6 +44,13 @@ class Session {
             return null;
         }
 
+    }
+    public function logout():void
+    {
+        $this->message = null;
+        $this->user_id = null;
+        unset($_SESSION['message']);
+        unset($_SESSION['user_id']);
     }
 }
 $session = new Session();
