@@ -1,4 +1,8 @@
  <?php require_once("partials/header.php") ?> 
+ <?php if(!$session->logged_in()) {
+  redirect("login_page.php");
+ } ?>
+
  <?php require_once("partials/navigation.php") ?> 
     <div class="content-container">
       <main>
