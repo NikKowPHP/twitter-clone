@@ -16,7 +16,7 @@
 
             <?php echo $session->get_message() ?>
 
-          <form action="src/includes/register.php.php" method="POST">
+          <form action="src/includes/register.php" method="POST">
 
                 <input type="text" name="username"  placeholder="Name">
                 <input type="email" name="email"  placeholder="E-mail">

@@ -1,5 +1,5 @@
 <?php 
-define("ROOT", "C:/MAMP/htdocs/twitter-clone");
+define("ROOT", "/var/www/html/twitter-clone");
 define("DS", DIRECTORY_SEPARATOR);
 define("CLASSES", ROOT . DS . 'src' . DS . 'classes');
 

@@ -1,4 +1,5 @@
 <?php
+require_once("/var/www/html/twitter-clone/src/functions/init.php");
 require_once("../functions/functions.php");
 
 if (isset($_POST['register_submit'])) {

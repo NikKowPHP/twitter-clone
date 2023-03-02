@@ -1,7 +1,7 @@
 <?php 
     
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'root');
+define('DB_USER', 'mikita');
+define('DB_PASSWORD', 'gans2vlad');
 define('DB_NAME', 'twitter');
 ?>

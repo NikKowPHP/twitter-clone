@@ -1,5 +1,5 @@
 
-<?php require_once('C:\MAMP\htdocs\twitter-clone\src\functions\init.php'); ?>
+<?php require_once('src/functions/init.php'); ?>
 <?php 
 
 $user = '';
