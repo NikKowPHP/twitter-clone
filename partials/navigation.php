@@ -147,7 +147,7 @@
           </div>
           <div class="profile-info">
             <p class="sidebar-profile-name"><?php echo $user->username; ?></p>
-            <p class="sidebar-profile-username">@NikKowPHP</p>
+            <p class="sidebar-profile-username">@<?php echo $user->username; ?></p>
           </div>
           <div class="sidebar-profile-more">
                   <svg
