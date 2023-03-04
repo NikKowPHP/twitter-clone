@@ -31,7 +31,9 @@ class Db_object
     }
     public static function get_by_id(int $id) {
         $params = array("id" => $id);
-        $sql = "SELECT * FROM " . static::$db_table_name . " WHERE id= :id LIMIT 1";
+        $table  = static::$db_table_name;
+        $where = " WHERE id = :id ";
+        $sql = "SELECT * FROM $table $where LIMIT 1";
         return static::get_data_by_query($sql, $params, true);
     }
     public static function iterate_through_post(array $post):self 
