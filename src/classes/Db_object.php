@@ -14,23 +14,25 @@ class Db_object
         return $obj;
 
     }
-    protected static function get_data_by_query($sql)
+    public static function get_data_by_query(string $sql, array $params = array(), $return_data = true)
     {
         global $database;
         $objects_arr = [];
-        $rows = $database->query($sql);
-        while ($row = $rows->fetch_assoc()) {
-            $objects_arr[] = static::instantiate($row);
-        }
+        $rows = $database->execute_query($sql, $params, $return_data);
+            foreach($rows as $row) {
+                $objects_arr[] = static::instantiate($row);
+            }
         return $objects_arr;
     }
     public static function get_all() {
         $sql = "SELECT * FROM " . static::$db_table_name;
+        // TODO: finish changing methods to pdo
         return static::get_data_by_query($sql);
     }
     public static function get_by_id(int $id) {
-        $sql = "SELECT * FROM " . static::$db_table_name . " WHERE id= {$id} LIMIT 1";
-        return static::get_data_by_query($sql)[0];
+        $params = array("id" => $id);
+        $sql = "SELECT * FROM " . static::$db_table_name . " WHERE id= :id LIMIT 1";
+        return static::get_data_by_query($sql, $params, true);
     }
     public static function iterate_through_post(array $post):self 
     {
@@ -39,7 +41,7 @@ class Db_object
         $obj_array = [];
         foreach($post as $key => $value) {
             if(in_array($key,$obj_props)) {
-               $obj_array[$key] = $database->conn->real_escape_string($value); 
+               $obj_array[$key] = trim($value); 
             }
         }
         return static::instantiate($obj_array);
@@ -50,7 +52,7 @@ class Db_object
         $props = [];
         foreach(static::$db_fields as $field) {
             if(property_exists($this, $field)) {
-                $props[$field] = $database->conn->real_escape_string($this->$field);
+                $props[$field] = $this->$field;
             }
         }
         return $props;
@@ -58,12 +60,13 @@ class Db_object
 
     public function create(): bool
     {
-        $props = $this->properties();
         global $database;
-        $sql = "INSERT INTO " . static::$db_table_name . " (" . implode(', ', array_keys($props)). ")" 
-                . " VALUES ('" . implode("', '", array_values($props)) . "')";
-                print_r($sql);
-        return $database->query($sql) ? true : false;
+        $table = static::$db_table_name;
+        $props = $this->properties();
+        $columns = implode(", ", array_keys($props));
+        $placeholders = ":" . implode(", :", array_keys($props));
+        $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+        return $database->execute_query($sql, $props);
     }
 
 }
