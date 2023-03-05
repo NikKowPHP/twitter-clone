@@ -6,6 +6,10 @@ class Db_object
 
     public function __construct()
     {
+        self::$db_fields = $this->get_db_fields();
+    }
+    protected function get_db_fields(): array
+    {
         $sql = "describe ". static::$db_table_name; 
         global $database;
         $db_all_columns = $database->execute_query(sql:$sql, return_data: true);
@@ -17,7 +21,8 @@ class Db_object
             $db_columns[] = $db_column['Field'];
           }
         }
-        static::$db_fields = $db_columns;
+       return $db_columns; 
+
     }
     private static function instantiate($db_row)
     {
