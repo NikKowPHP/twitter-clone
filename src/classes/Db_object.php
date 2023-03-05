@@ -1,7 +1,24 @@
 <?php
 class Db_object
 {
+    protected static string $db_table_name = '';
+    protected  static array $db_fields = array();
 
+    public function __construct()
+    {
+        $sql = "describe ". static::$db_table_name; 
+        global $database;
+        $db_all_columns = $database->execute_query(sql:$sql, return_data: true);
+        
+        $db_columns = [];
+        foreach($db_all_columns as $db_column) {
+          if($db_column['Field'] != 'id') {
+
+            $db_columns[] = $db_column['Field'];
+          }
+        }
+        static::$db_fields = $db_columns;
+    }
     private static function instantiate($db_row)
     {
         $calling_class = get_called_class();
