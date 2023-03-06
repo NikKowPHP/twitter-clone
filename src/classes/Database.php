@@ -33,8 +33,8 @@ class Database {
                 $result = $this->get_data($result);
             }
             $this->pdo->commit();
-            $this->pdo = null;
-            $this->stmt = null;
+            // $this->pdo = null;
+            // $this->stmt = null;
             return $result;
 
         } catch (PDOException $e) {
