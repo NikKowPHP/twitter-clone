@@ -2,8 +2,8 @@
 require_once("Session.php");
 
 class User extends Db_object{
-    protected static string $db_table_name = "users";
-    protected static array $db_fields; 
+    protected string $db_table_name = "users";
+    protected array $db_fields; 
     public ?int $id;
     public ?string $username;
     public ?string $password;
@@ -25,7 +25,7 @@ class User extends Db_object{
         global $database;
         global $session;
         $sql = "SELECT * FROM users WHERE email = '$this->email'";
-        if($db_user = parent::get_data_by_query($sql)[0]) {
+        if($db_user = User::get_data_by_query($sql)[0]) {
             if($this->check_password($db_user->password)) {
                 $session->set_user_id($db_user->id);
                 return true;
