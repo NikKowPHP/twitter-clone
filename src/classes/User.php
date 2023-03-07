@@ -2,8 +2,8 @@
 require_once("Session.php");
 
 class User extends Db_object{
-    protected string $db_table_name = "users";
-    protected array $db_fields; 
+    protected static string $db_table_name = "users";
+    protected static array $db_fields = ['username', 'password', 'email', 'token', 'active']; 
     public ?int $id;
     public ?string $username;
     public ?string $password;
