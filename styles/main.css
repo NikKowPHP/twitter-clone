@@ -208,3 +208,14 @@ section {
     flex: 1;
 }
 
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#file-input {
+    display: none;
+}
+
