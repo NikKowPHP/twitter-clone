@@ -77,6 +77,24 @@ class Db_object
         $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
         return $database->execute_query($sql, $props);
     }
+    public function update(): bool
+    {
+        global $database;
+        $table = static::$db_table_name;
+        $columns = $this->properties();
+        $update = "UPDATE $table SET ";
+        $where = " WHERE id = $this->id";
+        $set_clause = [];
+
+        foreach($columns as $column => $value) {
+            $set_clause[] = "$column = :$column";
+        }
+        $set_clause_string = implode(", ", $set_clause);
+        $set_clause_string = rtrim($set_clause_string, ", ");
+
+        $sql = $update . $set_clause_string . $where;
+        return $database->execute_query(sql:$sql, params:$columns);
+    }
 
 }
 
