@@ -31,6 +31,26 @@ class File_handler {
             throw new Exception("Error uploading file.");
         }
     }
+    public function delete():string
+    {
+        if(!file_exists($this->filename)) {
+            throw new Exception("File not found");
+        }
+        $result = unlink($this->filename);
+        if($result !== false) {
+            return "File deleted successfully";
+        } else {
+            throw new Exception("Error deleting file");
+        }
+    }
+    public function read(): string
+    {
+        if(!file_exists($this->file['tmp_name'])) {
+            throw new Exception("File not found");
+        }
+        $content = file_get_contents($this->file['tmp_name']);
+        return $content;
+    }
 
 }
 
