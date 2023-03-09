@@ -2,7 +2,7 @@
 declare(strict_types=1);
 class File_handler {
     private array $file;
-    private string $filename;
+    private string $name;
     public function __construct(array $file)
     {
         if(!isset($file)) {
@@ -12,7 +12,7 @@ class File_handler {
             throw new Exception("File upload error: " . $file['error']);
         }
         $this->file = $file;
-        $this->filename = $file['name'];
+        $this->name = $file['name'];
     }
 
     public function write($destination):string
@@ -24,7 +24,7 @@ class File_handler {
         if(!is_writable($destination)) {
             throw new Exception("Destination directory is not writable.");
         }
-        $result = move_uploaded_file($this->file['tmp_name'], $destination . '/'. $this->filename);
+        $result = move_uploaded_file($this->file['tmp_name'], $destination . '/'. $this->name);
         if($result !== false) {
             return "file uploaded successfully.";
         } else {
@@ -33,10 +33,10 @@ class File_handler {
     }
     public function delete():string
     {
-        if(!file_exists($this->filename)) {
+        if(!file_exists($this->name)) {
             throw new Exception("File not found");
         }
-        $result = unlink($this->filename);
+        $result = unlink($this->name);
         if($result !== false) {
             return "File deleted successfully";
         } else {
@@ -50,6 +50,10 @@ class File_handler {
         }
         $content = file_get_contents($this->file['tmp_name']);
         return $content;
+    }
+    public function get_name():string
+    {
+        return $this->name;
     }
 
 }
