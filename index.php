@@ -16,7 +16,9 @@
           </div>
         </div>
         <section class="create-tweet-section">
-          <form action="src/includes/create_tweet.php" method="post" enctype="multipart/form-data">
+
+
+          <form action="src/includes/create_tweet.php?user_id=<?= $user->id ?>" method="post" enctype="multipart/form-data">
 
           <div class="create-tweet-image-container">
             <img src="icons/default_profile.png" alt="" />
@@ -29,7 +31,7 @@
             <textarea
               class="create-tweet-text"
               name="body"
-              id=""
+              id="create-tweet-text"
               cols="45"
               placeholder="What's happening?"
             ></textarea>
@@ -111,8 +113,9 @@
               <div class="create-tweet-submit-container">
                 <input
                   class="btn btn-disabled"
+                  id="create-tweet-submit-btn"
                   type="submit"
-                  name="tweet"
+                  name="create_tweet"
                   value="Tweet"
                 />
               </div>
