@@ -19,6 +19,7 @@ if(isset($user_id)) {
     <link rel="stylesheet" href="./styles/sidebar.css" />
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/aside.css" />
+    <link rel="stylesheet" href="./styles/profile.css" />
     <title>Document</title>
   </head>
   <body>
