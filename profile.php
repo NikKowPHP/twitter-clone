@@ -6,40 +6,48 @@
 
  <?php require_once("partials/navigation.php") ?> 
     <div class="content-container">
-      <main>
-        <div class="header-center-container">
-          <div class="home-link-container">
+      <main class="profile-main">
+
+
+        <div class=" profile-header-top">
+
+          <div class="profile-header-top-sticky-wrapper">
             <a class="home-link" href="index.php">
-            <svg viewBox="0 0 24 24" aria-hidden="true" class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03"><g><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"></path></g></svg>
+             <svg viewBox="0 0 24 24" aria-hidden="true" class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03"><g><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"></path></g></svg>
             </a>
-            <div class="profile-header-top-name">
-              <div><?php echo $user->username ?></div>
+            <div class="profile-header-top-credentials">
+              <div class="profile-header-top-username" ><?php echo $user->username ?></div>
               <!-- TODO: get_all_by_id tweets -->
-              <div>8 Tweets</div>
-              
+
+              <div class="profile-header-top-tweets" >8 Tweets</div>
             </div>
           </div>
+
           <div class="profile-header-background"></div>
 
+        <div class="profile-header-user-info">
           <div class="profile-header-photo-wrapper">
             <!-- <img src="<?= ROOT. DS . 'images' . DS . $user->image?>" alt=""> -->
-            <img src="images/image1.jpeg" alt="">
+            <div class="profile-header-photo-container">
+              <img src="images/profile-image-1.webp" alt="">
+            </div> 
             <button class="btn">Edit profile</button>
           </div>
-          <div class="profile-header-username">
-            <div><?= $user->username?></div>
-            <div class="dimmed-text">@<?= $user->username?></div>
+          <div class="profile-header-user">
+            <div class="profile-header-top-username" ><?= $user->username?></div>
+            <div class="profile-header-user-link dimmed-text">@<?= $user->username?></div>
           </div>
-          <div class="profile-header-joined-date">
+          <div class="profile-header-joined-date dimmed-text">
             <!-- TODO: USER date  -->
             <svg viewBox="0 0 24 24" aria-hidden="true" class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-1d4mawv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M7 4V3h2v1h6V3h2v1h1.5C19.89 4 21 5.12 21 6.5v12c0 1.38-1.11 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-12C3 5.12 4.12 4 5.5 4H7zm0 2H5.5c-.27 0-.5.22-.5.5v12c0 .28.23.5.5.5h13c.28 0 .5-.22.5-.5v-12c0-.28-.22-.5-.5-.5H17v1h-2V6H9v1H7V6zm0 6h2v-2H7v2zm0 4h2v-2H7v2zm4-4h2v-2h-2v2zm0 4h2v-2h-2v2zm4-4h2v-2h-2v2z"></path></g></svg>
             <p>Joined November 2019</p>
           </div>
           <div class="profile-header-following-wrapper">
             <!-- TODO: user-> followers, user->following -->
-            <div class="profile-following"> <span>42</span>Following</div>
-            <div class="profile-followers"><span>5</span>Followers</div>
+            <div class="profile-follow"> <span>42</span>Following</div>
+            <div class="profile-follow"><span>5</span>Followers</div>
           </div>
+        </div>
 
           <div id="header-buttons" class="header-buttons-container">
               <a href="#" class="header-button-link active-home-link"><span>Tweets</span> </a>
