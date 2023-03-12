@@ -42,6 +42,13 @@ class Db_object
         $sql = "SELECT * FROM $table $where LIMIT 1";
         return static::get_data_by_query($sql, $params, true)[0];
     }
+    public static function get_all_by(string $by, int|string $param):array {
+        $params = array($by => $param);
+        $table = static::$db_table_name;
+        $where = " WHERE $by = :$by";
+        $sql = "SELECT * FROM $table $where";
+        return static::get_data_by_query($sql, $params);
+    }
     public  static function iterate_through_post(array $post):self
     {
         $obj_props = static::$db_fields;
