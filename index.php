@@ -22,7 +22,7 @@
           <form action="src/includes/create_tweet.php?user_id=<?= $user->id ?>" method="post" enctype="multipart/form-data">
 
           <div class="create-tweet-image-container">
-            <img src="icons/default_profile.png" alt="" />
+            <img src="images/default_profile.png" alt="" />
           </div>
 
 
