@@ -1,7 +1,13 @@
 <?php
-require_once(ROOT.DS."src/functions/init.php");
+require_once("/var/www/html/twitter-clone/src/functions/init.php");
 
 if(isset($_POST['follow'])) {
-    $channel_id = $_POST['channel_id'];
+    $user_id = $session->get_user_id();
+    $follow = new Follow();
+    $follow->set_user_id($session->get_user_id());
+    $follow->set_following($_GET['following']);
+    if($follow->create()) {
+        redirect("index.php");
+    }
 }
 ?>
