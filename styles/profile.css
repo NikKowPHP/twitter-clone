@@ -7,6 +7,9 @@
     padding-bottom: 10px;
 
 }
+.profile-header-top {
+    border-bottom: 1px solid rgba(92, 92, 92, 0.11);
+}
 .profile-header-top-sticky-wrapper .home-link {
     padding-left: 20px;
 }
