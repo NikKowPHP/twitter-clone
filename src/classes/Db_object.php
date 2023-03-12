@@ -42,10 +42,14 @@ class Db_object
         $sql = "SELECT * FROM $table $where LIMIT 1";
         return static::get_data_by_query($sql, $params, true)[0];
     }
-    public static function get_all_by(string $by, int|string $param):array {
+    public static function get_all_by(string $by, int|string $param, array $join = array()):array {
         $params = array($by => $param);
         $table = static::$db_table_name;
         $where = " WHERE $by = :$by";
+        if(!empty($join)) {
+            $join = $join['related_table'];
+        }
+//        TODO: JOIN users and tweets
         $sql = "SELECT * FROM $table $where";
         return static::get_data_by_query($sql, $params);
     }
