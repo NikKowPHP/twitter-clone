@@ -143,7 +143,7 @@
         </div>
         <div id="sidebar_profile" class="sidebar-profile-container">
           <div class="sidebar-profile-image-container">
-            <img src="images/default_profile.png" alt="" />
+            <img src="images/<?= $user->image ?>" alt="<?= $user->image ?> logo" />
           </div>
           <div class="profile-info">
             <p class="sidebar-profile-name"><?php echo $user->username; ?></p>
