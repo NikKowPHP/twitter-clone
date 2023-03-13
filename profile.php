@@ -34,7 +34,7 @@
                 <div class="profile-header-photo-wrapper">
                     <!-- <img src="<?= ROOT . DS . 'images' . DS . $user->image ?>" alt=""> -->
                     <div class="profile-header-photo-container">
-                        <img src="images/profile-image-1.webp" alt="">
+                        <img src="images/<?= $user->image ?>" alt="">
                     </div>
                     <button class="btn">Edit profile</button>
                 </div>
@@ -53,7 +53,6 @@
                     <p>Joined November 2019</p>
                 </div>
                 <div class="profile-header-following-wrapper">
-                    <!-- TODO: user-> followers, user->following -->
                     <div class="profile-follow"><span><?= $user->get_following_count() ?></span>Following</div>
                     <div class="profile-follow"><span><?= $user->get_followers_count() ?></span>Followers</div>
                 </div>
