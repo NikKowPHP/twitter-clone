@@ -2,7 +2,7 @@
 <?php if (!$session->logged_in()) {
     redirect("login_page.php");
 }
- ?>
+?>
 
 <?php require_once("partials/navigation.php") ?>
 <div class="content-container">
@@ -54,8 +54,8 @@
                 </div>
                 <div class="profile-header-following-wrapper">
                     <!-- TODO: user-> followers, user->following -->
-                    <div class="profile-follow"><span>42</span>Following</div>
-                    <div class="profile-follow"><span>5</span>Followers</div>
+                    <div class="profile-follow"><span><?= $user->get_following_count() ?></span>Following</div>
+                    <div class="profile-follow"><span><?= $user->get_followers_count() ?></span>Followers</div>
                 </div>
             </div>
 
@@ -67,11 +67,9 @@
             </div>
         </div>
 
+        <section>
         <?php
-
         $tweets = Tweet::get_all_by("user_id", $user->id);
-
-        
         ?>
 
         <?php foreach ($tweets as $tweet): ?>
