@@ -40,13 +40,22 @@ class User extends Db_object{
             return false;
         }
     }
-    public function get_following():array
+    public function get_following():int|array
     {
-        return Follow::get_all_by('user_id', $this->id);
+        return ($followings = Follow::get_all_by('user_id', $this->id)) ? $followings : 0;
+
     }
-    public function get_followers(): array
+    public function get_followers(): int|array
     {
-        return Follow::get_all_by('following', $this->id);
+        return ($followers = Follow::get_all_by('following', $this->id)) ? $followers : 0;
+    }
+    public function get_following_count():int
+    {
+        return (is_int($this->get_following()) ? 0 : count($this->get_following()));
+    }
+    public function get_followers_count():int
+    {
+        return (is_int($this->get_followers()) ? 0 : count($this->get_followers()));
     }
 
 }
