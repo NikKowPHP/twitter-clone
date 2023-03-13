@@ -38,6 +38,4 @@ class Follow extends Db_object
     {
         $this->following = $following;
     }
-
-
 }
