@@ -40,6 +40,14 @@ class User extends Db_object{
             return false;
         }
     }
+    public function get_following():array
+    {
+        return Follow::get_all_by('user_id', $this->id);
+    }
+    public function get_followers(): array
+    {
+        return Follow::get_all_by('following', $this->id);
+    }
 
 }
 ?>
