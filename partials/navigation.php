@@ -2,7 +2,7 @@
     <header>
       <nav class="sidebar-nav">
         <div class="sidebar-logo">
-          <a href="#">
+          <a href="index.php">
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -17,7 +17,7 @@
           </a>
         </div>
         <div class="nav-links-container">
-          <a href="#" class="sidebar-nav-home">
+          <a href="index.php" class="sidebar-nav-home">
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"

@@ -67,18 +67,30 @@
             <h6>Who to follow</h6>
           </div>
 
+                <?php
+                $users = User::get_all();
+
+                foreach($users as $user):
+                ?>
+
+
           <div class="channel-container">
             <div class="channel-image">
-              <img src="images/youtube-image.png" alt="" />
+<!--                TODO: USER->IMAGE-->
+              <img src="images/<?= $user->image ?>" alt="<?= $user->username; ?> logo" />
             </div>
             <div class="channel-info">
-              <div class="channel-name">YouTube</div>
-              <div class="dimmed-text">@YouTube</div>
+              <div class="channel-name"><?= $user->username ?></div>
+              <div class="dimmed-text">@<?= $user->username ?></div>
             </div>
             <div class="follow-btn-container">
-              <input class="btn follow-btn" type="submit" value="Follow" />
+                <form action="src/includes/following_user.php?following=<?= $user->id ?>" method="POST">
+              <input class="btn follow-btn" type="submit" value="Follow" name="follow"/>
+                    </form>
             </div>
           </div>
+                <?php endforeach; ?>
+
 
           <div class="channel-container">
             <div class="channel-image">
