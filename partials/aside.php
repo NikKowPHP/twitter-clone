@@ -68,42 +68,40 @@
           </div>
 
                 <?php
-                $users = User::get_all();
+                $channels = User::get_all();
 
-                foreach($users as $user):
+                foreach($channels as $channel):
                 ?>
+                <?php if($channel->id !== $session->get_user_id()): ?>
 
 
           <div class="channel-container">
             <div class="channel-image">
 <!--                TODO: USER->IMAGE-->
-              <img src="images/<?= $user->image ?>" alt="<?= $user->username; ?> logo" />
+              <img src="images/<?= $channel->image ?>" alt="<?= $channel->username; ?> logo" />
             </div>
             <div class="channel-info">
-              <div class="channel-name"><?= $user->username ?></div>
-              <div class="dimmed-text">@<?= $user->username ?></div>
+              <div class="channel-name"><?= $channel->username ?></div>
+              <div class="dimmed-text">@<?= $channel->username ?></div>
             </div>
             <div class="follow-btn-container">
-                <form action="src/includes/following_user.php?following=<?= $user->id ?>" method="POST">
-              <input class="btn follow-btn" type="submit" value="Follow" name="follow"/>
+                <form action="src/includes/following_user.php?following=<?= $channel->id ?>" method="POST">
+
+                <?php if($user->is_following($channel->id)): ?>
+
+                        <input class="btn follow-btn" type="submit" value="Unfollow" name="unfollow"/>
+<!--                TODO: UNFOLLOW FUNCTIONALLITY-->
+                    <?php else: ?>
+                        <input class="btn follow-btn" type="submit" value="Follow" name="follow"/>
+                    
+                    <?php endif; ?>
                     </form>
             </div>
           </div>
+            <?php endif; ?>
                 <?php endforeach; ?>
 
 
-          <div class="channel-container">
-            <div class="channel-image">
-              <img src="images/java.png" alt="" />
-            </div>
-            <div class="channel-info">
-              <div class="channel-name">Java Champions</div>
-              <div class="dimmed-text">@Java_Champions</div>
-            </div>
-            <div class="follow-btn-container">
-              <input class="btn follow-btn" type="submit" value="Follow" />
-            </div>
-          </div>
 
           <div class="show-more-btn hashtag">Show more</div>
         </div>

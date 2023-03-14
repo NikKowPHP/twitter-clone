@@ -57,6 +57,16 @@ class User extends Db_object{
     {
         return (is_int($this->get_followers()) ? 0 : count($this->get_followers()));
     }
+    public function is_following($channel_id):bool
+    {
+        $followings_arr = $this->get_following();
+        foreach($followings_arr as $following_obj) {
+            if ($following_obj->following == $channel_id) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 ?>
