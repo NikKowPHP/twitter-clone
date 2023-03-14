@@ -74,34 +74,37 @@ main {
     opacity: 1;
 }
 
+
+
+/*CREATE NEW TWEET SECTION*/
 section {
     margin: 0;
 }
+
 .create-tweet-section {
     padding-top: 10px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.103);
-    /* border-right: 1px solid rgba(0, 0, 0, 0.103); */
-    display: flex;
-    
+    padding-left: 15px;
+    padding-right: 15px;
+
 }
-.create-tweet-content-container {
-    display: flex;
-    flex-direction: column;
+.create-tweet-image-text-wrapper {
+    display:flex;
+
+}
+.create-tweet-tools {
+    padding-left: 40px;
 }
 .create-tweet-tools-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .create-tweet-tools svg {
     fill: rgb(81,178,243);
     width: 20px;
     margin-left: 10px;
-}
-.create-tweet-image-container {
-    margin-right: 15px;
-    margin-left: 15px;
 }
 .create-tweet-image-container img {
     width: 50px;
