@@ -25,7 +25,7 @@ $tweets = Tweet::get_all() ?>
 
                 <div class="create-tweet-image-text-wrapper">
                     <div class="create-tweet-image-container">
-                        <img src="images/<?= $user->image ?>" alt=""/>
+                        <a href="profile.php"><img src="images/<?= $user->image ?>" alt=""/></a>
                     </div>
                     <textarea
                             class="create-tweet-text"
