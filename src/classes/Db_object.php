@@ -22,9 +22,11 @@ class Db_object
 
         $objects_arr = [];
         $rows = $database->execute_query(sql:$sql,params: $params, return_data: $return_data);
+        if($rows) {
             foreach($rows as $row) {
                 $objects_arr[] = static::instantiate($row);
             }
+        }
         return $objects_arr;
     }
     protected static function create_object():static
@@ -42,7 +44,8 @@ class Db_object
         $sql = "SELECT * FROM $table $where LIMIT 1";
         return static::get_data_by_query($sql, $params, true)[0];
     }
-    public static function get_all_by(string $by, int|string $param, array $join = array()):array {
+    public static function get_all_by(string $by, int|string $param, array $join = array()):array
+    {
         $params = array($by => $param);
         $table = static::$db_table_name;
         $where = " WHERE $by = :$by";
@@ -105,6 +108,15 @@ class Db_object
 
         $sql = $update . $set_clause_string . $where;
         return $database->execute_query(sql:$sql, params:$columns);
+    }
+    public function delete(): bool
+    {
+        global $database;
+        $delete = "DELETE FROM ";
+        $table = static::$db_table_name;
+        $where = " WHERE id = $this->id";
+        $sql = $delete.$table.$where;
+        return $database->execute_query(sql: $sql);
     }
 
 }
