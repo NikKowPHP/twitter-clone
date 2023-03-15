@@ -37,13 +37,6 @@ class Db_object
         $sql = "SELECT * FROM " . static::$db_table_name;
         return static::get_data_by_query($sql);
     }
-    public static function get_by_id(int $id) {
-        $params = array("id" => $id);
-        $table  = static::$db_table_name; 
-        $where = " WHERE id = :id ";
-        $sql = "SELECT * FROM $table $where LIMIT 1";
-        return static::get_data_by_query($sql, $params, true)[0];
-    }
     public static function get_all_by(string $by, int|string $param, array $join = array()):array
     {
         $params = array($by => $param);
@@ -56,6 +49,31 @@ class Db_object
         $sql = "SELECT * FROM $table $where";
         return static::get_data_by_query($sql, $params);
     }
+    public static function get_by_id(int $id) {
+        $params = array("id" => $id);
+        $table  = static::$db_table_name; 
+        $where = " WHERE id = :id ";
+        $sql = "SELECT * FROM $table $where LIMIT 1";
+        return static::get_data_by_query($sql, $params, true)[0];
+    }
+    public static function get_by(array $params, bool $is_one = true) :array|self
+    {
+//        [user_id = 2, following = 8]
+//
+        $select = "SELECT * FROM ";
+        $table = static::$db_table_name;
+        $where = " WHERE ";
+            foreach($params as $key => $value) {
+                $where .= "{$key}=:{$key}";
+                if(count($params) > 1 && $key != array_key_last($params)) {
+                    $where .= " AND ";
+                }
+            }
+
+        $sql = $select.$table.$where;
+        return $is_one ?  static::get_data_by_query(sql:$sql, params: $params)[0] : static::get_data_by_query(sql:$sql, params: $params);
+    }
+
     public  static function iterate_through_post(array $post):self
     {
         $obj_props = static::$db_fields;
