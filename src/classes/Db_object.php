@@ -15,7 +15,7 @@ class Db_object
             return $new_obj;
 
     }
-    public static function get_data_by_query(string $sql, array $params = array(), $return_data = true)
+    public static function get_data_by_query(string $sql, array $params = array(), $return_data = true): array|null
     {
         global $database;
 
@@ -26,18 +26,22 @@ class Db_object
             foreach($rows as $row) {
                 $objects_arr[] = static::instantiate($row);
             }
+            return $objects_arr;
+        } else {
+            return null;
         }
-        return $objects_arr;
+
     }
     protected static function create_object():static
     {
         return new static();
     }
-    public static function get_all() {
+    public static function get_all():array|null
+    {
         $sql = "SELECT * FROM " . static::$db_table_name;
         return static::get_data_by_query($sql);
     }
-    public static function get_all_by(string $by, int|string $param, array $join = array()):array
+    public static function get_all_by(string $by, int|string $param, array $join = array()):array|null
     {
         $params = array($by => $param);
         $table = static::$db_table_name;
@@ -49,14 +53,15 @@ class Db_object
         $sql = "SELECT * FROM $table $where";
         return static::get_data_by_query($sql, $params);
     }
-    public static function get_by_id(int $id) {
+    public static function get_by_id(int $id) :self|null
+    {
         $params = array("id" => $id);
         $table  = static::$db_table_name; 
         $where = " WHERE id = :id ";
         $sql = "SELECT * FROM $table $where LIMIT 1";
         return static::get_data_by_query($sql, $params, true)[0];
     }
-    public static function get_by(array $params, bool $is_one = true) :array|self
+    public static function get_by(array $params, bool $is_one = true) :array|self|null
     {
 //        [user_id = 2, following = 8]
 //
@@ -71,7 +76,11 @@ class Db_object
             }
 
         $sql = $select.$table.$where;
-        return $is_one ?  static::get_data_by_query(sql:$sql, params: $params)[0] : static::get_data_by_query(sql:$sql, params: $params);
+            if(!is_null($data = static::get_data_by_query(sql:$sql, params:$params))) {
+                return $is_one ?  $data[0] : $data;
+            } else {
+                return null;
+            }
     }
 
     public  static function iterate_through_post(array $post):self
