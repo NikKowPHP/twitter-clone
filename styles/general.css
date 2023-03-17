@@ -1,13 +1,13 @@
 body {
     margin: 0;
-    padding-left: 400px;
+    /*padding-left: 400px;*/
     font-family: 'Chirp', sans-serif;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
 }
 @media (max-width: 900px) {
-    body {
-        padding-left: 300px;
-    }
+
 }
 a {
     font-family: 'Chirp', sans-serif;
