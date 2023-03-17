@@ -90,3 +90,42 @@
 .profile-follow {
     margin-right: 15px;
 }
+
+/*PROFILE WHO TO FOLLOW SECTION*/
+
+.profile-section-header {
+    padding-bottom: 30px;
+}
+.profile-section-header h6 {
+    font-size: 20px;
+}
+.profile-who-to-follow-section {
+    padding: 15px 15px 30px 15px;
+}
+.channels-wrapper {
+    padding-bottom: 15px;
+}
+
+.channel-wrapper {
+   display: flex;
+    align-items: flex-start;
+}
+.channel-wrapper img {
+    margin-right: 15px;
+}
+.channel-wrapper * {
+    /*border: 1px solid black;*/
+}
+.channel-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: end;
+}
+.channel-info,
+.channel-description{
+    justify-self: start;
+}
+
+
+/*PROFILE WHO TO FOLLOW SECTION END*/
