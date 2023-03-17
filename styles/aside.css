@@ -116,6 +116,7 @@ aside .channel-image img {
   margin-right: 10px;
 }
 .follow-btn {
+  display: block;
   background-color: rgb(15,20,25);
 }
 aside .channel-image {
