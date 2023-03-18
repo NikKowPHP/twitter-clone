@@ -1,4 +1,7 @@
 <?php require_once("src/functions/init.php")?>
+<?php require_once("partials/modals/modal.php") ?>
+<?php require_once("partials/modals/modal_login.php") ?>
+<?php require_once("partials/modals/modal_register.php") ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -186,14 +189,12 @@
         <p>Twitter users are the first to know.</p>
       </div>
       <div class="login-footer-links">
-        <a href="#" id="login-btn-modal" class="btn login-btn">Log in</a>
+          <a href="#" id="login-btn-modal" class="btn login-btn">Log in</a>
         <a href="#" id="register_modal" class="btn register-btn">register</a>
       </div>
 
     </footer>
-    <?php require_once("partials/modals/modal.php") ?>
-    <?php require_once("partials/modals/modal_login.php") ?>
-    <?php require_once("partials/modals/modal_register.php") ?>
+
 
 
 
