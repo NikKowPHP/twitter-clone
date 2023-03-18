@@ -11,5 +11,6 @@ require_once(CLASSES . DS . 'User.php');
 require_once(CLASSES . DS . 'File_handler.php');
 require_once(CLASSES . DS . 'Tweet.php');
 require_once(CLASSES . DS . 'Follow.php');
+require_once(CLASSES . DS . 'Modal.php');
 require_once(ROOT .DS."src".DS."functions".DS. "functions.php");
 ?>
