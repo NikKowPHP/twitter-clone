@@ -1,8 +1,10 @@
-<?php 
+<?php
+declare(strict_types=1);
 session_start();
+require_once("/var/www/html/twitter-clone/src/classes/Cookie.php");
 
 class Session {
-    private ?int $id;
+    private ?string $id;
     private ?string $message;
     private ?int $user_id = null;
 
@@ -17,7 +19,24 @@ class Session {
             $this->user_id = $_SESSION['user_id'];
         }
     }
-    public function set_user_id($user_id)
+
+    /**
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string|null $id
+     */
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function set_user_id(int $user_id)
     {
         $_SESSION['user_id'] = $user_id;
         $this->id = session_id();
@@ -29,7 +48,7 @@ class Session {
     }
 
 
-    public function set_message($message):void
+    public function set_message(string $message):void
     {
         $_SESSION['message'] = $message;
         $this->message = $message;
@@ -57,7 +76,7 @@ class Session {
     }
     public function logged_in():bool
     {
-        return isset($this->user_id) ? true: false;
+        return isset($_COOKIE['user_id']) ? true: false;
     }
 }
 $session = new Session();
