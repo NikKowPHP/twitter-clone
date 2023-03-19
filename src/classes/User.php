@@ -27,8 +27,9 @@ class User extends Db_object{
         global $session;
         $sql = "SELECT * FROM users WHERE email = '$this->email'";
         if($db_user = User::get_data_by_query($sql)[0]) {
-            if($this->check_password($db_user->password)) {
-                $session->set_user_id($db_user->id);
+            if($this->check_password(db_password: $db_user->password)) {
+                $session->set_user_id(user_id:$db_user->id);
+                $cookie = new Cookie(user_id: $db_user->id);
                 return true;
             } else {
                 $session->set_message("wrong password");
