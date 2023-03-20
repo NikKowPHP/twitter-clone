@@ -7,16 +7,25 @@ class Cookie
     private string $session_id;
 
     /**
-     * @param string $username
-     * @param string $password
      * @param int $user_id
      */
-    public function __construct(int $user_id)
+    public function __construct()
     {
         global $session;
-        $this->user_id= $user_id;
-        $this->session_id = $session->getId();
-        $this->set_cookie();
+
+        if(!$this->check_cookies()) {
+            $this->user_id= $session->get_user_id();
+            $this->session_id = $session->getId();
+            $this->set_cookie();
+        }
+    }
+    public function check_cookies():bool
+    {
+        if(isset($_COOKIE['user_id'])) {
+            $this->user_id = $_COOKIE['user_id'];
+            $this->session_id = $_COOKIE['session_id'];
+            return true;
+        }else return false;
     }
 
     /**
