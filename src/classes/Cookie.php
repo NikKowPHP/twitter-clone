@@ -14,16 +14,19 @@ class Cookie
         global $session;
 
         if(!$this->check_cookies()) {
-            $this->user_id= $session->get_user_id();
-            $this->session_id = $session->getId();
+            if($session->get_user_id()) {
+                $this->user_id= $session->get_user_id();
+                $this->session_id = $session->get_id();
+            }
             $this->set_cookie();
         }
     }
     public function check_cookies():bool
     {
         if(isset($_COOKIE['user_id'])) {
-            $this->user_id = $_COOKIE['user_id'];
+            $this->user_id = (int)$_COOKIE['user_id'];
             $this->session_id = $_COOKIE['session_id'];
+            $session->set_user_id($this->user_id);
             return true;
         }else return false;
     }
@@ -31,7 +34,7 @@ class Cookie
     /**
      * @return int
      */
-    public function getUserId(): int
+    public function get_user_id(): int
     {
         return $this->user_id;
     }
@@ -39,7 +42,7 @@ class Cookie
     /**
      * @param int $id
      */
-    public function setUserId(int $user_id): void
+    public function set_user_id(int $user_id): void
     {
         $this->user_id = $user_id;
     }
@@ -47,7 +50,7 @@ class Cookie
     /**
      * @return int
      */
-    public function getSessionId(): string
+    public function get_session_id(): string
     {
         return $this->session_id;
     }
@@ -55,7 +58,7 @@ class Cookie
     /**
      * @param int $session_id
      */
-    public function setSessionId(string $session_id): void
+    public function set_session_id(string $session_id): void
     {
         $this->session_id = $session_id;
     }
@@ -67,6 +70,14 @@ class Cookie
         setcookie('user_id', (string)$this->user_id, $expire, '/');
         setcookie('session_id', $this->session_id, $expire, '/');
     }
+    public function delete_cookie()
+    {
+        setcookie('user_id', '', time() * 3600, '/');
+        setcookie('session_id', '', time() * 3600, '/');
+        unset($_COOKIE['user_id']);
+        unset($_COOKIE['session_id']);
+    }
+
 
 }
 
