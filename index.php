@@ -1,10 +1,8 @@
 <?php require_once("partials/header.php") ?>
-<?php if (!$session->logged_in()) {
-    redirect("login_page.php");
-}
-$tweets = Tweet::get_all() ?>
-
 <?php require_once("partials/navigation.php") ?>
+<?php $tweets = Tweet::get_all() ?>
+
+
 <div class="content-container">
     <main>
         <div class="header-center-container">
@@ -140,7 +138,6 @@ $tweets = Tweet::get_all() ?>
                 <article class="post">
                     <div class="channel-image">
                         <img src="images/post-1-channel.png" alt=""/>
-                        <!-- TODO: USER image  -->
                     </div>
                     <div class="post-content">
                         <div class="post-header">
