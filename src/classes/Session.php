@@ -13,6 +13,7 @@ class Session {
 
     public static function regenerate(bool $delete_old_session = true):bool
     {
+        self::start();
         return session_regenerate_id($delete_old_session);
     }
 

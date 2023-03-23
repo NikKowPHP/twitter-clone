@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once("/var/www/html/twitter-clone/src/classes/Session.php");
+
 class Cookie
 {
     private static int $expire =  604800;
@@ -12,7 +12,7 @@ class Cookie
 
     public static function set(string $key, string|int $value, bool $is_positive): bool
     {
-        return setcookie($key, $value, self::expiration($is_positive), '/');
+        return setcookie($key, (string)$value, self::expiration($is_positive), '/');
     }
     public static function has(string $name): bool
     {
