@@ -3,79 +3,32 @@ declare(strict_types=1);
 require_once("/var/www/html/twitter-clone/src/classes/Session.php");
 class Cookie
 {
-    private int $user_id;
-    private string $session_id;
+    private static int $expire =  604800;
 
-    /**
-     * @param int $user_id
-     */
-    public function __construct()
+    public static function get(string $name, $default = null)
     {
-        global $session;
+        return $_COOKIE[$name] ?? $default;
+    }
 
-        if(!$this->check_cookies()) {
-            if($session->get_user_id()) {
-                $this->user_id= $session->get_user_id();
-                $this->session_id = $session->get_id();
-            }
-            $this->set_cookie();
+    public function set(string $key, string|int $value, bool $is_positive): bool
+    {
+        return setcookie($key, $value, self::expiration($is_positive), '/');
+    }
+    public static function has(string $name): bool
+    {
+        return isset($_COOKIE[$name]);
+    }
+    public function delete(string $name): bool
+    {
+        if(self::has($name)) {
+            unset($_COOKIE[$name]);
+            return self::set($name, '', false);
         }
+        return false;
     }
-    public function check_cookies():bool
+    private static function expiration(bool $is_positive = true):int
     {
-        if(isset($_COOKIE['user_id'])) {
-            $this->user_id = (int)$_COOKIE['user_id'];
-            $this->session_id = $_COOKIE['session_id'];
-            $session->set_user_id($this->user_id);
-            return true;
-        }else return false;
-    }
-
-    /**
-     * @return int
-     */
-    public function get_user_id(): int
-    {
-        return $this->user_id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function set_user_id(int $user_id): void
-    {
-        $this->user_id = $user_id;
-    }
-
-    /**
-     * @return int
-     */
-    public function get_session_id(): string
-    {
-        return $this->session_id;
-    }
-
-    /**
-     * @param int $session_id
-     */
-    public function set_session_id(string $session_id): void
-    {
-        $this->session_id = $session_id;
-    }
-
-
-
-    private function set_cookie() {
-        $expire = time() + (30 * 24 * 60 * 60);
-        setcookie('user_id', (string)$this->user_id, $expire, '/');
-        setcookie('session_id', $this->session_id, $expire, '/');
-    }
-    public function delete_cookie()
-    {
-        setcookie('user_id', '', time() * 3600, '/');
-        setcookie('session_id', '', time() * 3600, '/');
-        unset($_COOKIE['user_id']);
-        unset($_COOKIE['session_id']);
+        return $is_positive ? time() + static::$expire : time() - static::$expire;
     }
 
 
