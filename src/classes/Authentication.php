@@ -1,24 +1,25 @@
 <?php
 class Authentication
 {
-    public function login(string $email, string $password):bool
+    public static function login(string $email, string $password):bool
     {
-        $sql = "SELECT * FROM users WHERE email = '$this->email'";
+        $sql = "SELECT * FROM users WHERE email = '$email'";
         $user = User::get_data_by_query($sql)[0];
         if(!$user || !password_verify($password, $user->password)) {
             return false;
         }
+        Session::regenerate();
         Session::set(key:'user_id', value:$user->id);
-        Cookie::set('remember_me', $user->id, time() + (30 * 24 * 60 * 60));
-        return true;
 
+        Cookie::set('user_id', $user->id, true);
+        return true;
     }
-    public function logout()
+    public function logout():void
     {
-        Session::remove('user_id');
-        Cookie::remove('remember_me');
+        Session::destroy();
+        Cookie::remove('user_id');
     }
-    public function is_logged_in()
+    public function is_logged_in():bool
     {
         return Session::exists('user_id');
     }

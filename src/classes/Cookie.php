@@ -10,7 +10,7 @@ class Cookie
         return $_COOKIE[$name] ?? $default;
     }
 
-    public function set(string $key, string|int $value, bool $is_positive): bool
+    public static function set(string $key, string|int $value, bool $is_positive): bool
     {
         return setcookie($key, $value, self::expiration($is_positive), '/');
     }
@@ -18,7 +18,7 @@ class Cookie
     {
         return isset($_COOKIE[$name]);
     }
-    public function delete(string $name): bool
+    public static function remove(string $name): bool
     {
         if(self::has($name)) {
             unset($_COOKIE[$name]);
