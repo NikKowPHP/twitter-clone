@@ -1,11 +1,5 @@
-
 <?php require_once('src/functions/init.php'); ?>
-<?php 
-
-$user_id = $session->get_user_id();
-if(isset($user_id)) {
-  $user = User::get_by_id($user_id);
-}
+<?php Authentication::is_logged_in() ? $user = User::get_by_id(Cookie::get('user_id')): redirect('login_page.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

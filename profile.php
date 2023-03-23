@@ -1,10 +1,8 @@
 <?php require_once("partials/header.php") ?>
-<?php if (!$session->logged_in()) {
-    redirect("login_page.php");
-}
-?>
-
 <?php require_once("partials/navigation.php") ?>
+
+<?php //require_once("partials/modals/modal_edit-profile.php") ?>
+
 <div class="content-container">
     <main class="profile-main">
 
@@ -206,7 +204,7 @@
 
                     <?php $channels = User::get_all(); ?>
                     <?php foreach ($channels as $channel): ?>
-                        <?php if ($channel->id !== $session->get_user_id()): ?>
+                        <?php if ($channel->id !== $user_id = Cookie::get('user_id')): ?>
 
 
                             <div class="channel-wrapper">
@@ -221,7 +219,7 @@
 
                                     <?php if ($user->is_following($channel->id)): ?>
                                         <?php
-                                        $arr = ['user_id' => $session->get_user_id(), 'following' => $channel->id];
+                                        $arr = ['user_id' => $user_id, 'following' => $channel->id];
                                         $follow = Follow::get_by($arr);
                                         ?>
                                         <a href="src/includes/following_user.php?unfollow=<?= $follow->id ?>"

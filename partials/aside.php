@@ -68,7 +68,7 @@
 
         <?php $channels = User::get_all(); ?>
         <?php foreach ($channels as $channel): ?>
-            <?php if ($channel->id !== $session->get_user_id()): ?>
+            <?php if ($channel->id !== $user_id = Cookie::get('user_id')): ?>
 
 
                 <div class="channel-container">
@@ -83,7 +83,7 @@
 
                         <?php if ($user->is_following($channel->id)): ?>
                             <?php
-                            $arr = ['user_id' => $session->get_user_id(), 'following' => $channel->id];
+                            $arr = ['user_id' => $user_id, 'following' => $channel->id];
                             $follow = Follow::get_by($arr);
                             ?>
 
