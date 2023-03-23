@@ -14,12 +14,12 @@ class Authentication
         Cookie::set('user_id', $user->id, true);
         return true;
     }
-    public function logout():void
+    public static function logout():void
     {
         Session::destroy();
         Cookie::remove('user_id');
     }
-    public function is_logged_in():bool
+    public static function is_logged_in():bool
     {
         return Session::exists('user_id');
     }
