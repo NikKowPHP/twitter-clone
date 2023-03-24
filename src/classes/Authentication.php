@@ -21,7 +21,7 @@ class Authentication
     }
     public static function is_logged_in():bool
     {
-        return Session::exists('user_id');
+        return Cookie::exists('user_id');
     }
 
 }
