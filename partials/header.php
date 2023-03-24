@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="./styles/aside.css" />
     <link rel="stylesheet" href="./styles/profile.css" />
+      <link rel="stylesheet" href="./styles/modal.css" />
     <title>Document</title>
   </head>
   <body>
