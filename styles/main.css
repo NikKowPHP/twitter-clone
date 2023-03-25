@@ -220,4 +220,7 @@ section {
 #file-input {
     display: none;
 }
+.icon-file {
+    cursor: pointer;
+}
 
