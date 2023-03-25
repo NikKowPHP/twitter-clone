@@ -167,6 +167,7 @@
 }
 .modal-edit-profile .background-image {
     position: relative;
+    margin-bottom: 70px;
 }
 .modal-edit-profile .background-image svg {
     fill: white;
@@ -179,7 +180,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.modal-edit-profile .background-image img {
+.modal-edit-profile .modal-background-image {
     width: 600px;
 }
 .input-modal {
@@ -194,4 +195,23 @@
     padding-left: 10px;
     font-family: 'Chirp', sans-serif;
     font-size: 15px;
+}
+.user-image {
+
+    position: absolute;
+    bottom: -50px;
+    left: 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid white;
+
+}
+
+.user-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
 }
