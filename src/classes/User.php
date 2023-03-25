@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 class User extends Db_object{
     protected static string $db_table_name = "users";
-    protected static array $db_fields = ['username', 'password', 'email', 'token', 'active', 'image'];
+    protected static array $db_fields = ['username', 'password', 'email', 'token', 'active', 'image', 'background_image', 'bio', 'location', 'website'];
     public ?int $id;
     public ?string $username;
     public ?string $password;
@@ -11,6 +11,10 @@ class User extends Db_object{
     public ?string $token;
     public ?bool $active;
     public ?string $image;
+    public ?string $background_image;
+    public ?string $bio;
+    public ?string $location;
+    public ?string $website;
 
    public function encrypt_password():void
     {
