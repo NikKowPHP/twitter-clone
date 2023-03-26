@@ -68,7 +68,7 @@
 
         <?php $channels = User::get_all(); ?>
         <?php foreach ($channels as $channel): ?>
-            <?php if ($channel->id !== $user_id = Cookie::get('user_id')): ?>
+            <?php if ($channel->id != $user_id = Cookie::get('user_id')): ?>
 
 
                 <div class="channel-container">
