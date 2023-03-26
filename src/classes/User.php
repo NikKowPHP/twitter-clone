@@ -115,6 +115,7 @@ class User extends Db_object{
     {
         $this->email = $email;
     }
+//    TODO: incapsulate props
 
     /**
      * @return bool|null

@@ -9,13 +9,8 @@ if(isset($_POST['create_tweet'])) {
     $tweet->image = $file->get_name();
     $tweet->user_id = $_GET['user_id'];
     $tweet->date = date('Y-m-d H:i:s');
-    if($tweet->create()) {
-        $session->set_message("Your tweet successfully created");
-        redirect("index.php");
-    }else {
-        $session->set_message("something went wrong");
-        redirect("index.php");
-    }
+    $tweet->create();
+    redirect("index.php");
 }
 
 ?>
