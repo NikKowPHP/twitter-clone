@@ -8,6 +8,7 @@ const login_btn = document.querySelector("#login-btn-modal");
 const create_acc_btn = document.querySelector("#create_account_btn");
 const edit_profile_btn = document.querySelector("#edit_profile_open");
 
+
 const close_btns = document.querySelectorAll(".close");
 
 close_btns.forEach(function(close_btn) {
