@@ -211,7 +211,9 @@
 
                             <div class="channel-wrapper">
 
-                                <img src="images/<?= $channel->image ?>" alt="<?= $channel->username; ?> logo"/>
+                                <div class="channel-logo-wrapper">
+                                    <img class="channel-logo" src="images/<?= $channel->image ?>" alt="<?= $channel->username; ?> logo"/>
+                                </div>
 
                                 <div class="channel-body">
                                     <div class="channel-item channel-info">

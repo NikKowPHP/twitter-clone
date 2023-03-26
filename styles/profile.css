@@ -114,11 +114,18 @@
    display: flex;
     align-items: flex-start;
 }
-.channel-wrapper img {
-    margin-right: 15px;
-}
 .channel-wrapper * {
     /*border: 1px solid black;*/
+}
+.channel-logo-wrapper {
+    width: 55px;
+    margin-right: 15px;
+}
+.channel-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 }
 .channel-body {
     width: 100%;
