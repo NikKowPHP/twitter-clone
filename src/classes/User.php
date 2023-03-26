@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 class User extends Db_object{
     protected static string $db_table_name = "users";
-    protected static array $db_fields = ['username', 'password', 'email', 'token', 'active', 'image'];
+    protected static array $db_fields = ['username', 'password', 'email', 'token', 'active', 'image', 'background_image', 'bio', 'location', 'website'];
     public ?int $id;
     public ?string $username;
     public ?string $password;
@@ -11,6 +11,10 @@ class User extends Db_object{
     public ?string $token;
     public ?bool $active;
     public ?string $image;
+    public ?string $background_image;
+    public ?string $bio;
+    public ?string $location;
+    public ?string $website;
 
    public function encrypt_password():void
     {
@@ -47,5 +51,167 @@ class User extends Db_object{
         }
         return false;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string|null $username
+     */
+    public function setUsername(?string $username): void
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string|null $password
+     */
+    public function setPassword(?string $password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string|null $email
+     */
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
+    }
+//    TODO: incapsulate props
+
+    /**
+     * @return bool|null
+     */
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool|null $active
+     */
+    public function setActive(?bool $active): void
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string|null $image
+     */
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBackgroundImage(): ?string
+    {
+        return $this->background_image;
+    }
+
+    /**
+     * @param string|null $background_image
+     */
+    public function setBackgroundImage(?string $background_image): void
+    {
+        $this->background_image = $background_image;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBio(): ?string
+    {
+        return $this->bio;
+    }
+
+    /**
+     * @param string|null $bio
+     */
+    public function setBio(?string $bio): void
+    {
+        $this->bio = $bio;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param string|null $location
+     */
+    public function setLocation(?string $location): void
+    {
+        $this->location = $location;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    /**
+     * @param string|null $website
+     */
+    public function setWebsite(?string $website): void
+    {
+        $this->website = $website;
+    }
+
 }
 ?>

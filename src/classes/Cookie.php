@@ -31,6 +31,11 @@ class Cookie
         return $is_positive ? time() + static::$expire : time() - static::$expire;
     }
 
+    public static function exists(string $key): bool
+    {
+        return isset($_COOKIE['user_id']) ? true : false;
+    }
+
 
 }
 

@@ -221,3 +221,10 @@ section {
     display: none;
 }
 
+.icon-file-input{
+    display: none;
+}
+.icon-file {
+    cursor: pointer;
+}
+

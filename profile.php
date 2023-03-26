@@ -1,7 +1,7 @@
 <?php require_once("partials/header.php") ?>
 <?php require_once("partials/navigation.php") ?>
 
-<?php //require_once("partials/modals/modal_edit-profile.php") ?>
+<?php require_once("partials/modals/modal_edit-profile.php") ?>
 
 <div class="content-container">
     <main class="profile-main">
@@ -34,7 +34,7 @@
                     <div class="profile-header-photo-container">
                         <img src="images/<?= $user->image ?>" alt="">
                     </div>
-                    <button class="btn">Edit profile</button>
+                    <button class="btn" id="edit_profile_open">Edit profile</button>
                 </div>
                 <div class="profile-header-user">
                     <div class="profile-header-top-username"><?= $user->username ?></div>
