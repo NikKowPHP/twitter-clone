@@ -26,11 +26,13 @@
                 </div>
             </div>
 
-            <div class="profile-header-background"></div>
+            <div class="profile-header-background">
+                <img src="<?= 'images' . DS . $user->getBackgroundImage() ?>" alt="user background">
+            </div>
+
 
             <div class="profile-header-user-info">
                 <div class="profile-header-photo-wrapper">
-                    <!-- <img src="<?= ROOT . DS . 'images' . DS . $user->image ?>" alt=""> -->
                     <div class="profile-header-photo-container">
                         <img src="images/<?= $user->image ?>" alt="">
                     </div>
