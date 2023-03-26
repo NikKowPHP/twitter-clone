@@ -182,6 +182,8 @@
 }
 .modal-edit-profile .modal-background-image {
     width: 600px;
+    height: 400px;
+    object-fit: cover;
 }
 .input-modal {
     width: 590px !important;
