@@ -254,14 +254,6 @@
                                     <div class="post-description">
                                         <p>
                                             <?= $tweet->body ?>
-                                            <span class="link">
-                      https://bit.ly/GrammarLearnEnglish
-                                                <!--                                    TODO: CHANGE LINKS-->
-                    </span>
-                                            <span class="hashtag">
-                      #valentinesday #quiz #grammar #learnenglish #LearnEnglish
-                      #learningenglish #englishvocabulary #englishteachers
-                    </span>
                                         </p>
                                     </div>
                                     <div class="post-image">
@@ -279,10 +271,12 @@
                                                 ></path>
                                             </g>
                                         </svg>
+
+                                        <a href="/twitter-clone/src/includes/retweet_tweet.php?untweet=<?= $retweet->getId() ?>">
                                         <svg
                                                 viewBox="0 0 24 24"
                                                 aria-hidden="true"
-                                                class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"
+                                                class="icon-retweet icon-active r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"
                                         >
                                             <g>
                                                 <path
@@ -290,6 +284,7 @@
                                                 ></path>
                                             </g>
                                         </svg>
+                                        </a>
                                         <svg
                                                 viewBox="0 0 24 24"
                                                 aria-hidden="true"
