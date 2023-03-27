@@ -116,8 +116,20 @@
     align-items: flex-start;
     margin-bottom: 15px;
 }
-.channel-wrapper * {
-    /*border: 1px solid black;*/
+.retweet-wrapper {
+    display: flex;
+    padding-top: 5px;
+    padding-left: 60px;
+
+}
+.retweet-wrapper svg {
+    width: 15px;
+    margin-right: 10px;
+
+}
+.retweet-caution {
+    font-size: 13px;
+    font-weight: bold;
 }
 .channel-logo-wrapper {
     width: 55px;
