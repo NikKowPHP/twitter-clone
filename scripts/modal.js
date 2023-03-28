@@ -36,10 +36,12 @@ function closeModal() {
 
 }
 
-edit_profile_btn.addEventListener('click', showModalEditProfile)
-login_btn.addEventListener('click', showModalLogin);
-create_acc_btn.addEventListener('click', showModalRegister)
-register_btn.addEventListener('click', showModalJoin);
+if(login_btn) {
+    login_btn.addEventListener('click', showModalLogin);
+    create_acc_btn.addEventListener('click', showModalRegister);
+    register_btn.addEventListener('click', showModalJoin);
+}
+if(edit_profile_btn) edit_profile_btn.addEventListener('click', showModalEditProfile);
 
 
 window.addEventListener('click', (event) => {
