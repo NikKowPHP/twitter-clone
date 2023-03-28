@@ -180,18 +180,22 @@
                                 <img src="images/<?= $tweet->image ?>" alt=""/>
                             </div>
                             <div class="post-tools">
-                                <svg
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                        class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"
-                                >
-                                    <g>
-                                        <path
-                                                d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"
-                                        ></path>
-                                    </g>
-                                </svg>
+                                <div class="post-tool">
+                                    <svg
+                                            viewBox="0 0 24 24"
+                                            aria-hidden="true"
+                                            class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"
+                                    >
+                                        <g>
+                                            <path
+                                                    d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"
+                                            ></path>
+                                        </g>
+                                    </svg>
 
+                                </div>
+
+                                <div class="post-tool">
                                 <?php if($user->is_retweeting($tweet->id)): ?>
                                     <?php
                                     $arr = ['user_id' => $user->id, 'tweet_id' => $tweet->id];
@@ -209,6 +213,7 @@
                                         ></path>
                                     </g>
                                 </svg>
+                                    <span class="tools-count tools-count-active"><?= $tweet->get_retweets_count(); ?></span>
                                 </a>
                                 <?php else: ?>
 
@@ -225,9 +230,13 @@
                                                 ></path>
                                             </g>
                                         </svg>
+                                        <span class="tools-count"><?= $tweet->get_retweets_count(); ?></span>
                                     </a>
 
                                 <?php endif; ?>
+                                </div>
+                                <div class="post-tool">
+
                                 <svg
                                         viewBox="0 0 24 24"
                                         aria-hidden="true"
@@ -239,6 +248,8 @@
                                         ></path>
                                     </g>
                                 </svg>
+                                </div>
+                                <div class="post-tool">
                                 <svg
                                         viewBox="0 0 24 24"
                                         aria-hidden="true"
@@ -250,6 +261,9 @@
                                         ></path>
                                     </g>
                                 </svg>
+                                </div>
+                                <div class="post-tool">
+
                                 <svg
                                         viewBox="0 0 24 24"
                                         aria-hidden="true"
@@ -261,6 +275,7 @@
                                         ></path>
                                     </g>
                                 </svg>
+                                </div>
                             </div>
                         </div>
                     </div>
