@@ -1,5 +1,5 @@
-<?php 
-class Tweet extends Db_object 
+<?php
+class Tweet extends Db_object
 {
     protected static string $db_table_name = "tweets";
     protected static array $db_fields = ['user_id', 'body', 'image', 'date'];
@@ -9,7 +9,5 @@ class Tweet extends Db_object
     public ?string $body;
     public ?string $image;
     public ?string $date;
-    
-
 }
  ?>
