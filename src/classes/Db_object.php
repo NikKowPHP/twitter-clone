@@ -101,8 +101,10 @@ class Db_object
         global $database;
         $props = [];
         foreach(static::$db_fields as $field) {
-            if(property_exists($this, $field)) {
-                $props[$field] = $this->$field;
+            if(isset($this->$field)) {
+                if(property_exists($this, $field)) {
+                    $props[$field] = $this->$field;
+                }
             }
         }
         return $props;

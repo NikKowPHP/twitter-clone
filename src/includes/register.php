@@ -8,12 +8,12 @@ if (isset($_POST['register_submit'])) {
     $user->encrypt_password();
     $user->active = 1;
 
-    if ($user->create()) {
-        $session->set_message("you have created a user");
+    if($user->create()) {
         redirect("index.php");
     } else {
-        $session->set_message("something went wrong");
+        reload();
     }
+
 
 }
 ?>
