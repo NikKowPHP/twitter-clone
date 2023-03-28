@@ -176,14 +176,28 @@ section {
     display:flex;
     align-items: flex-start;
 }
+.post-tool {
+    margin-right: 80px;
+    padding-bottom: 10px;
+}
+.post-tool a {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.tools-count {
+    font-size: 14px;
+}
+.tools-count-active {
+    color: rgb(100,190,130);
+}
 .post-header-more svg {
     width: 18px;
 }
-.post-tools svg {
+.post-tool svg {
     width: 18px;
-    margin-right: 80px;    
-    padding-bottom: 10px;
-    
+    margin-right: 5px;
+
 }
 
 /* login-page */
