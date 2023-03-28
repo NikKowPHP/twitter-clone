@@ -51,6 +51,25 @@ class User extends Db_object{
         }
         return false;
     }
+    public function get_retweets() :int|array
+    {
+        return ($retweets = Retweet::get_all_by('user_id', $this->id)) ? $retweets : 0;
+
+    }
+
+    public function is_retweeting($tweet_id): bool
+    {
+        $retweets_arr = $this->get_retweets();
+        if($retweets_arr!= 0) {
+            foreach($retweets_arr as $retweet_obj) {
+                if ($retweet_obj->getTweetId() == $tweet_id) {
+                    return true;
+                }
+            }
+            return false;
+    }
+        return false;
+    }
 
     /**
      * @return int|null
