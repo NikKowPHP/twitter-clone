@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Show Welcome page
+Route::get('/users/welcome', function () {
+    return view('users.welcome');
 });
