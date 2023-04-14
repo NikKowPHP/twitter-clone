@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TweetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Show Welcome page
-Route::get('/users/welcome', function () {
-    return view('users.welcome');
-});
+Route::get('/welcome', [TweetController::class, 'welcome'])->middleware('guest');
