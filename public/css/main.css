@@ -1,0 +1,249 @@
+main {
+    /* padding-top: 96px; */
+    width: 600px;
+    border-right: 1px solid rgba(0, 0, 0, 0.103);
+}
+
+.header-center-container {
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    background-color:rgba(255,255,255, 0.95);
+    padding-top:10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+    border-left: 1px solid rgba(0, 0, 0, 0.103);
+}
+.home-link-container {
+    margin-left: 16px;
+    margin-bottom: 30px;
+}
+.home-link {
+    font-size: 20px;
+    font-weight: 700;
+}
+.header-buttons-container {
+    width: 100%;
+    box-sizing: border-box;
+    display:flex;
+    padding-bottom: 1px;
+}
+.header-button-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    background-color:transparent;
+    border: none;
+    position: relative;
+    transition: background-color 0.15s;
+}
+
+
+#header-buttons a:hover {
+    background-color: rgba(144, 143, 143, 0.149);
+}
+
+.header-button-link span{
+    position : relative;
+}
+.header-button-link span::after {
+    content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  border-radius: 3px;
+  background-color: rgb(29,155,240);
+  transform-origin: center;
+  transform: scaleY(0.5);
+  display: block;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.active-home-link span::after {
+    opacity: 1;
+
+}
+.active-home-link span:active::after {
+    opacity: 1;
+}
+
+
+
+/*CREATE NEW TWEET SECTION*/
+section {
+    margin: 0;
+}
+
+.create-tweet-section {
+    padding-top: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+.create-tweet-image-text-wrapper {
+    display:flex;
+
+}
+.create-tweet-tools {
+    padding-left: 40px;
+}
+.create-tweet-tools-container {
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.create-tweet-tools svg {
+    fill: rgb(81,178,243);
+    width: 20px;
+    margin-left: 10px;
+}
+.create-tweet-image-container img {
+    width: 50px;
+    border-radius: 50%;
+}
+.create-tweet-text {
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Chirp';
+    /* font-weight: 500; */
+    color: #6e7c87;
+    padding-top:15px;
+}
+/* new tweet END */
+
+/* show new Tweets */
+
+.show-new-tweets-container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+    color: rgb(50, 168, 246);
+}
+
+/* show new tweets END */
+.post {
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+}
+.channel-image {
+    padding-right: 10px;
+}
+.post-header {
+    display:flex;
+    align-items: flex-start ;
+    justify-content: space-between;
+
+}
+.post-header-info > * {
+    margin-right: 3px;
+}
+.channel-name {
+    font-weight: 700;
+}
+.post-header-more {
+    margin-right: 15px;
+}
+.post-header-info {
+    display: flex;
+
+}
+.post-description {
+    max-width: 90%;
+}
+.post-image img{
+    width: 96%;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+    box-sizing: content-box;
+}
+
+
+.post-tools {
+    padding-top: 10px;
+    display:flex;
+    align-items: flex-start;
+}
+.post-tool {
+    margin-right: 80px;
+    padding-bottom: 10px;
+}
+.post-tool a {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.tools-count {
+    font-size: 14px;
+}
+.tools-count-active {
+    color: rgb(100,190,130);
+}
+.post-header-more svg {
+    width: 18px;
+}
+.post-tool svg {
+    width: 18px;
+    margin-right: 5px;
+
+}
+
+/* login-page */
+
+.login-main-tweets {
+    padding-left: 20px;
+}
+.login-searchbar-settings svg{
+    width: 27px;
+}
+.login-searchbar-settings {
+    width: 80px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+
+}
+.login-searchbar-container {
+    display:flex !important;
+    align-items: center !important;
+}
+.login-searchbar-container .search-bar {
+    width: 300px !important;
+    flex: 1;
+}
+
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#file-input {
+    display: none;
+}
+
+.icon-file-input{
+    display: none;
+}
+.icon-file {
+    cursor: pointer;
+}
+.icon-active {
+    fill: rgb(100,190,130);
+}
+
+
+
