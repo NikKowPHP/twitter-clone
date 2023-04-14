@@ -49,6 +49,7 @@
     margin-right: 0 !important;
     padding-left: 0 !important;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 .modal-login-option .login-option-image {
     padding-left: 10px;
@@ -84,9 +85,6 @@
 }
 .hr-with-text:not(:empty)::after{
     margin-left: 10px;
-}
-.login-disclamier {
-    margin-top: -20px;
 }
 .modal-login {
     margin-bottom: 30px;
@@ -216,4 +214,9 @@
     object-fit: cover;
     border-radius: 50%;
 
+}
+
+.login-option-wrapper {
+    cursor: pointer;
+    
 }

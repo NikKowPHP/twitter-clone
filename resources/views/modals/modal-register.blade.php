@@ -1,6 +1,8 @@
     <div id="modal-register" class="modal modal-register">
       <div class="modal-content modal-content-register">
-        <span class="close">&times;</span>
+        <button type="button" class="close btn-empty" data-dismiss="modal" aria-label="Close">
+          <span class="close" aria-hidden="true">&times;</span>
+        </button>
         <div class="modal-body">
           <h3>Create your account</h3>
           <form action="src/includes/register.php" method="POST">
