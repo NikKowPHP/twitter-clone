@@ -1,4 +1,6 @@
-    <div id="modal" class="modal">
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalWelcomeLabel" aria-hidden="true">
+    {{-- <div id="modal" class="modal"> --}}
       <div class="modal-content">
         <span class="close">&times;</span>
         <div class="modal-body">

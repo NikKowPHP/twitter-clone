@@ -1,12 +1,10 @@
 
     <div id="modal-login" class="modal modal-register modal-login">
       <div class="modal-content modal-content-register">
-        <span class="close">&times;</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <div class="modal-body">
-
-
-
-                
           <h3>Log in into your account</h3>
 
           <form action="src/includes/login_verification.php" method="POST">

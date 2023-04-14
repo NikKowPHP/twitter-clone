@@ -1,3 +1,6 @@
+@include('modals.modal-login')
+@include('modals.modal-welcome')
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -185,7 +188,10 @@
         <p>Twitter users are the first to know.</p>
       </div>
       <div class="login-footer-links">
-          <a href="#" id="login-btn-modal" class="btn login-btn">Log in</a>
+
+
+        <button class="btn login-btn" data-toggle="modal" data-target="#modal-login">Log in</button>
+          {{-- <a href="#" id="login-btn-modal" >Log in</a> --}}
         <a href="#" id="register_modal" class="btn register-btn">register</a>
       </div>
 
@@ -204,9 +210,14 @@
 
 
 
+{{-- TODO: put in layout --}}
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="{{ URL::asset('js/header.js') }} "></script>
     <script src="{{ URL::asset('js/sidebar.js') }} "></script>
-    <script src="{{ URL::asset('js/modal.js') }} "></script>
   </body>
 </html>

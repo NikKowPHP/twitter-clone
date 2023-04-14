@@ -1,3 +1,4 @@
+@include('modals.modal-login')
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,6 +14,12 @@
     <link rel="stylesheet" href="/resources/css./styles/aside.css" />
     <link rel="stylesheet" href="/resources/css./styles/footer.css" />
     <link rel="stylesheet" href="/resources/css/modal.css" />
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+
 
         <link
             rel="stylesheet"
