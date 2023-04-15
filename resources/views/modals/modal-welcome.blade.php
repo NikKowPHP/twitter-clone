@@ -51,7 +51,9 @@
           </div>
 
           <div class="modal-login dimmed-text">
-            Already have an account? <a href="#" class="hashtag">Log in</a>
+            Already have an account? 
+                            <button class="btn-empty hashtag" data-toggle="modal"
+                                    data-target="#modal-login">Log in</button>
           </div>
 
         </div>
