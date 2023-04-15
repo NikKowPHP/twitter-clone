@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 // Show Welcome page
 Route::get('/welcome', [TweetController::class, 'welcome'])->middleware('guest');
+
+// create  new user
+Route::post('/users', [UserController::class, 'store']);
