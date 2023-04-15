@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\TweetController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TweetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 // Show Welcome page
 Route::get('/welcome', [TweetController::class, 'welcome'])->middleware('guest');
-
 // create  new user
 Route::post('/users', [UserController::class, 'store']);
+
+// Show home page
+Route::get('/home', [TweetController::class, 'index'])->middleware('auth');
+
+// redirect to home/welcome page 
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect('/home');
+    }
+    return redirect('/welcome');
+});
