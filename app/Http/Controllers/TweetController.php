@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Tweet;
 use Illuminate\Http\Request;
 
 class TweetController extends Controller
@@ -12,6 +13,8 @@ class TweetController extends Controller
     }
     // Show index page
     public function index() {
-        return view('users.index');
+        return view('users.index', [
+            'tweets' => Tweet::all()
+        ]);
     }
 }
