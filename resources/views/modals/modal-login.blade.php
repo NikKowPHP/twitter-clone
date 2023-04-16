@@ -7,7 +7,7 @@
         <div class="modal-body">
           <h3>Log in into your account</h3>
 
-          <form action="src/includes/login_verification.php" method="POST">
+          <form action="/users" method="POST">
 
                 <input type="email" name="email"  placeholder="E-mail">
                 <input type="password" name="password"  placeholder="Password">
