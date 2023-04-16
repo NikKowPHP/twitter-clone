@@ -1,26 +1,27 @@
 <x-layout>
 
-
-@include('partials._hero')
-@include('partials._search')
+@php
+    $user = Auth::user();
+@endphp
+{{-- @include('partials._hero')
+@include('partials._search') --}}
 
     
 
-<div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 
 
-@unless (count($listings) == 0)
+@unless (count($tweets) == 0)
     
 
 
-@foreach($listings as $listing )
+@foreach($tweets as $tweet)
 
-<x-listing-card :listing="$listing "/>
+<x-tweet-card :tweet="$tweet"/>
 
 @endforeach
     @else
 
-<p>No listings found</p>
+<p>No tweets found</p>
 @endunless
 </div>
 
@@ -30,7 +31,7 @@
     <main>
         <div class="header-center-container">
             <div class="home-link-container">
-                <a class="home-link" href="index.php">Home</a>
+                <a class="home-link" href="/home">Home</a>
             </div>
             <div id="header-buttons" class="header-buttons-container">
                 <a href="#" class="header-button-link active-home-link"><span>For you</span> </a>
@@ -38,15 +39,16 @@
             </div>
         </div>
 
-        <form action="src/includes/create_tweet.php?user_id=<?= $user->id ?>" method="post"
+        <form action="/tweets/create" method="post"
               enctype="multipart/form-data">
+              @csrf
 
 
             <section class="create-tweet-section">
 
                 <div class="create-tweet-image-text-wrapper">
                     <div class="create-tweet-image-container">
-                        <a href="profile.php"><img src="images/<?= $user->image ?>" alt=""/></a>
+                        <a href="{{'/users/profile/'. $user->id}}"><img src="{{asset('images/'. $user->image)}}" alt=""/></a>
                     </div>
                     <textarea
                             class="create-tweet-text"
@@ -151,12 +153,9 @@
         </div>
         <section class="posts">
 
+					@foreach ($tweets as $tweet)
+							
 
-            <?php foreach ($tweets as $tweet): ?>
-                <?php
-                $tweet_author = User::get_by_id($tweet->user_id);
-
-                ?>
 
                 <article class="post">
                     <div class="channel-image">
@@ -165,12 +164,12 @@
                     <div class="post-content">
                         <div class="post-header">
                             <div class="post-header-info">
-                                <a class="channel-name" href=""><?= $tweet_author->username ?></a>
+                                <a class="channel-name" href=""> {{$tweet->user->name}}</a>
                                 <a class="channel-link dimmed-text" href=""
-                                >@<?= $tweet_author->username ?></a
+                                >@{{$tweet->user->name}}</a
                                 >
                                 <span class="dimmed-text"> &#183; </span>
-                                <span class="post-time dimmed-text"><?= $tweet->date; ?></span>
+                                <span class="post-time dimmed-text"> {{$tweet->createdAt}} </span>
                             </div>
                             <div class="post-header-more">
                                 <svg
@@ -189,18 +188,19 @@
                         <div class="post-body">
                             <div class="post-description">
                                 <p>
-                                    <?= $tweet->body ?>
+                                    {{$tweet->description}}
                                     <span class="link">
                       https://bit.ly/GrammarLearnEnglish
                     </span>
                                     <span class="hashtag">
+                                        {{$tweet->tags}}
                       #valentinesday #quiz #grammar #learnenglish #LearnEnglish
                       #learningenglish #englishvocabulary #englishteachers
                     </span>
                                 </p>
                             </div>
                             <div class="post-image">
-                                <img src="images/<?= $tweet->image ?>" alt=""/>
+                                <img src=" images/$tweet->image " alt=""/>
                             </div>
                             <div class="post-tools">
                                 <div class="post-tool">
@@ -303,9 +303,7 @@
                         </div>
                     </div>
                 </article>
-
-
-            <?php endforeach; ?>
+					@endforeach
 
 
         </section>
