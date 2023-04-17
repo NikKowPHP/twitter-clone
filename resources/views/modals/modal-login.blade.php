@@ -7,7 +7,8 @@
         <div class="modal-body">
           <h3>Log in into your account</h3>
 
-          <form action="/users" method="POST">
+          <form action="/users/authenticate" method="POST">
+            @csrf
 
                 <input type="email" name="email"  placeholder="E-mail">
                 <input type="password" name="password"  placeholder="Password">
