@@ -31,10 +31,22 @@ class UserController extends Controller
         return redirect('/home')->with('message', 'Welcome to your personalized home page');
 
     }
-    public function retweet(int $tweet_id)
+    public function has_retweeted(int $tweet_id)
     {
         $user = Auth::user();
         return  $user->retweets()->where('tweet_id', $tweet_id)->exists();
+    }
+    public function authenticate(Request $request)
+    {
+        $formFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => 'required'
+        ]);
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+            return redirect()->route('users.home');
+        }
+        return back()->withErrors(['email' => 'invalid credentials']);
     }
 
 }
