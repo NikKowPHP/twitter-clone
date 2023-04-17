@@ -17,12 +17,16 @@ use App\Http\Controllers\TweetController;
 */
 
 // Show Welcome page
-Route::get('/welcome', [TweetController::class, 'welcome'])->middleware('guest');
+Route::get('/welcome', [TweetController::class, 'welcome'])->middleware('guest')->name('users.welcome');
 // create  new user
 Route::post('/users', [UserController::class, 'store']);
 
+// authenticate user
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
 // Show home page
-Route::get('/home', [TweetController::class, 'index'])->middleware('auth');
+Route::get('/home', [TweetController::class, 'index'])->middleware('auth')->name('users.home');
+
 
 // redirect to home/welcome page 
 Route::get('/', function () {
