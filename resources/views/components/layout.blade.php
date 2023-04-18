@@ -15,16 +15,11 @@
     <link rel="stylesheet" href="{{ URL::asset('css/footer.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/modal.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/popper.min.js') }}"></script>
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>Twitter-clone</title>
   </head>
@@ -52,6 +47,11 @@
     <script src="{{ URL::asset('js/create_tweet.js') }} "></script>
     <script src="{{ URL::asset('js/icons_handler.js') }} "></script>
     <script src="{{ URL::asset('js/modal.js') }} "></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>

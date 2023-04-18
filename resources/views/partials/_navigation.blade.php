@@ -120,11 +120,11 @@
         </div>
         <div id="sidebar_profile" class="sidebar-profile-container">
             <div class="sidebar-profile-image-container">
-                <img src="{{ asset('images/' . $user->image) }}" alt="logo" />
+                <img src="{{ asset('images/' . ($user->image ?  $user->image : 'default_profile.png'))}}" alt="{{ $user->name . ' logo' }}">
             </div>
             <div class="profile-info">
                 <p class="sidebar-profile-name">{{ $user->name }}</p>
-                <p class="sidebar-profile-username">@{{ $user - > name }}</p>
+                <p class="sidebar-profile-username">@ {{ $user->name }}</p>
             </div>
             <div class="sidebar-profile-more">
                 <svg viewBox="0 0 24 24" aria-hidden="true"
