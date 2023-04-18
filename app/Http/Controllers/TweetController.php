@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\User;
 use App\Models\Tweet;
+use App\Models\Retweet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TweetController extends Controller
 {
@@ -14,7 +17,11 @@ class TweetController extends Controller
     }
     // Show index page
     public function index() {
+        $user = Auth::user();
         $tweets = Tweet::with('user')->get();
-        return view('users.index', compact('tweets'));
+        $channels = User::all();
+        // $retweets = Retweet::with('user')->get();
+        return view('users.index', ['user' => $user, 'tweets' => $tweets, 'channels' => $channels]);
+        
     }
 }
