@@ -63,12 +63,11 @@
 
                     <div class="channel-container">
                         <div class="channel-image">
-                            <img src="{{ 'images/' . $channel->image }}" alt="{{ $channel->name . ' logo' }}" />
-                            <img src="{{ 'images/' . $channel->image }}" alt="{{ $channel->name . ' logo' }}">
+                            <img src="{{ asset('images/' . ($channel->image ? $channel->image : 'default_profile.png')) }}" alt="{{ $channel->name . ' logo' }}" />
                         </div>
                         <div class="channel-info">
                             <div class="channel-name">{{ $channel->name }}</div>
-                            <div class="dimmed-text">@{{ $channel - > name }}</div>
+                            <div class="dimmed-text">@ {{ $channel->name }}</div>
                         </div>
                         <div class="follow-btn-container">
 
