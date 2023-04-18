@@ -2,7 +2,7 @@
     display: none;
     /* display: block; */
     position: fixed;
-    z-index: 1000;
+    z-index: 50;
     left: 0;
     top: 0;
     width: 100%;
@@ -133,6 +133,16 @@
 #modal-login {
     display: none;
 }
+#modal {
+    z-index: 50;
+}
+#modal-register {
+    z-index: 55;
+}
+#modal-login{
+    z-index: 60;
+}
+
 
 /*Modal edit profile*/
 .modal-edit-profile .modal-content {

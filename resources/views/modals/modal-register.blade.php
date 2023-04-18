@@ -5,8 +5,9 @@
         </button>
         <div class="modal-body">
           <h3>Create your account</h3>
-          <form action="src/includes/register.php" method="POST">
-                <input type="text" name="username"  placeholder="Name">
+          <form action="/users" method="POST">
+            @csrf
+                <input type="text" name="name"  placeholder="Name">
                 <input type="email" name="email"  placeholder="E-mail">
                 <input type="password" name="password"  placeholder="Password">
                 <input type="submit" value="Sign Up" name="register_submit" class="btn btn-register-submit">

@@ -1,13 +1,14 @@
 
     <div id="modal-login" class="modal modal-register modal-login">
       <div class="modal-content modal-content-register">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="close btn-empty" data-dismiss="modal" aria-label="Close">
+          <span class="close" aria-hidden="true">&times;</span>
         </button>
         <div class="modal-body">
           <h3>Log in into your account</h3>
 
-          <form action="src/includes/login_verification.php" method="POST">
+          <form action="/users/authenticate" method="POST">
+            @csrf
 
                 <input type="email" name="email"  placeholder="E-mail">
                 <input type="password" name="password"  placeholder="Password">
