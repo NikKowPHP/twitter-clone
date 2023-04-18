@@ -110,13 +110,7 @@
                         </svg>
                     </div>
                     <div class="create-tweet-submit-container">
-                        <input
-                                class="btn btn-disabled"
-                                id="create-tweet-submit-btn"
-                                type="submit"
-                                name="create_tweet"
-                                value="Tweet"
-                        />
+                        <button class="btn btn-disabled" id="create-tweet-submit-btn" type="submit">Tweet</button>
                     </div>
                 </div>
 
