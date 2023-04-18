@@ -92,13 +92,13 @@ section {
 
 }
 .create-tweet-tools {
-    padding-left: 40px;
-}
-.create-tweet-tools-container {
-    padding-bottom: 10px;
     display: flex;
     align-items: center;
+}
+.create-tweet-tools-container {
+    display: flex;
     justify-content: space-between;
+    padding-bottom: 10px;
 }
 .create-tweet-tools svg {
     fill: rgb(81,178,243);
