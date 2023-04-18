@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/favicon.ico" />
 
-    <link rel="stylesheet" href="/resources/css/general.css" />
-    <link rel="stylesheet" href="/resources/css/header.css" />
-    <link rel="stylesheet" href="/resources./styles/sidebar.css" />
-    <link rel="stylesheet" href="/resources/css./styles/main.css" />
-    <link rel="stylesheet" href="/resources/css./styles/aside.css" />
-    <link rel="stylesheet" href="/resources/css./styles/footer.css" />
-    <link rel="stylesheet" href="/resources/css/modal.css" />
+    <link rel="stylesheet" href="{{ URL::asset('css/general.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/header.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/aside.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/footer.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/modal.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
