@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tweet extends Model
 {
+    protected $fillable = ['title', 'description', 'user_id', 'tags'];
+
     use HasFactory;
 
     public function scopeFilter($query, array $filters) {

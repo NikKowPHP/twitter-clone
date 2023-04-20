@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Retweet extends Model
 {
+    protected $fillable = ['tweet_id', 'user_id'];
     use HasFactory;
 
     public function tweet()
