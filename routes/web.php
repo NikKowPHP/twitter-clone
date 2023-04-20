@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TweetController;
+use App\Http\Controllers\RetweetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::get('/home', [TweetController::class, 'index'])->middleware('auth')->name
 
 Route::post('/tweets/store', [TweetController::class, 'store'])->middleware('auth');
 
+//Retweet tweet
+
+Route::post('/tweets/retweet/{tweet}', [RetweetController::class, 'store'])->middleware('auth');
 
 // redirect to home/welcome page 
 Route::get('/', function () {

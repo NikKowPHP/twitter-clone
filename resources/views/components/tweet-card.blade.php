@@ -3,13 +3,13 @@
 <x-card>
     <article class="post">
         <div class="channel-image">
-            <img src="{{ asset('storage/' . $tweet->image) }}" alt="" />
+                <img src="{{ asset('images/' . ($tweet->user->image ?  $tweet->user->image : 'default_profile.png'))}}" alt="{{ $tweet->user->name . ' logo' }}">
         </div>
         <div class="post-content">
             <div class="post-header">
                 <div class="post-header-info">
                     <a class="channel-name" href="/users/{{ $tweet->user->id }}"> {{ $tweet->user->name }}</a>
-                    <a class="channel-link dimmed-text" href="/users/{{ $tweet->user->id }}">@{{ $tweet - > user - > name }}</a>
+                    <a class="channel-link dimmed-text" href="/users/{{ $tweet->user->id }}">@ {{ $tweet->user->name }}</a>
                     <span class="dimmed-text"> &#183; </span>
                     <span class="post-time dimmed-text"> {{ $tweet->createdAt }} </span>
                 </div>
@@ -50,8 +50,9 @@
                     </div>
 
                     <div class="post-tool">
-                        @if ($retweet = Auth::user()->retweet())
-                            <form action="/users/follow" method="post">
+                        @if (false)
+                        {{-- RETWEET --}}
+                            <form action="{{'/tweets/retweet/' . $tweet->id}}" method="post">
                                 @csrf
                                 @method('DELETE')
 
@@ -74,7 +75,7 @@
 
 
 
-                        <form action="/users/follow" method="post">
+                        <form action="{{'/tweets/retweet/' . $tweet->id}}" method="post">
                           @csrf
                           <button type="submit" class="btn-empty">
                             <svg id="btn-retweet" viewBox="0 0 24 24" aria-hidden="true"
