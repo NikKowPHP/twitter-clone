@@ -51,13 +51,13 @@
 
                     <div class="post-tool">
 
-                            
-                        @dd($tweet->retweet())
+                           
+                        @if (App\Models\Retweet::hasUserRetweeted(Auth::user()->id, $tweet->id))
                             <form action="{{'/tweets/retweet/' . $tweet->id}}" method="post">
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit" class="btn btn-empty">
+                                <button type="submit" class="btn btn-empty tools-count-wrapper">
 
                                     <svg viewBox="0 0 24 24" aria-hidden="true"
                                         class=" icon-active r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi">
@@ -70,9 +70,12 @@
                                   <span class="tools-count tools-count-active">{{$tweet->retweet()->count()}}</span>
                                 </button>
                             </form>
+                            
+                        @else
+
                         <form action="{{'/tweets/retweet/' . $tweet->id}}" method="post">
                           @csrf
-                          <button type="submit" class="btn-empty">
+                          <button type="submit" class=" btn btn-empty tools-count-wrapper">
                             <svg id="btn-retweet" viewBox="0 0 24 24" aria-hidden="true"
                                 class=" r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi">
                                 <g>
@@ -81,12 +84,13 @@
                                     </path>
                                 </g>
                             </svg>
-
-                            <span class="tools-count tools-count-active">{{$tweet->retweet()->count()}}</span>
+                            <span class="tools-count ">{{$tweet->retweet()->count()}}</span>
 
                           </button>
 
                         </form>
+                            
+                        @endif
 
                     </div>
                     <div class="post-tool">
