@@ -47,8 +47,9 @@ class User extends Authenticatable
     }
     public function retweets()
     {
-        return $this->hasMany(Retweet::class);
+        return $this->hasMany(Retweet::class, 'user_id');
     }
+
     public function followers()
     {
         return $this->hasMany(Follow::class, 'followed_user_id');
