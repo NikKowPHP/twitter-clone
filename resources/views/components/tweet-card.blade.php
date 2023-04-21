@@ -1,4 +1,4 @@
-@props(['tweet'])
+@props(['tweet', 'retweets', 'user'])
 
 <x-card>
     <article class="post">
@@ -50,8 +50,9 @@
                     </div>
 
                     <div class="post-tool">
-                        @if (false)
-                        {{-- RETWEET --}}
+
+                            
+                        @dd($tweet->retweet())
                             <form action="{{'/tweets/retweet/' . $tweet->id}}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -69,12 +70,6 @@
                                   <span class="tools-count tools-count-active">{{$tweet->retweet()->count()}}</span>
                                 </button>
                             </form>
-                        @endif
-
-
-
-
-
                         <form action="{{'/tweets/retweet/' . $tweet->id}}" method="post">
                           @csrf
                           <button type="submit" class="btn-empty">
@@ -92,6 +87,7 @@
                           </button>
 
                         </form>
+
                     </div>
                     <div class="post-tool">
 
