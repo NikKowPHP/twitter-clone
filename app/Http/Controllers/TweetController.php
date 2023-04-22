@@ -20,7 +20,7 @@ class TweetController extends Controller
         $user = Auth::user();
         $tweets = Tweet::with('user')->get();
         $channels = User::all();
-        $retweets = Retweet::with('user')->get();
+        $retweets = Retweet::all();
         return view('users.index', ['user' => $user, 'tweets' => $tweets, 'channels' => $channels, 'retweets' => $retweets]);
         
     }

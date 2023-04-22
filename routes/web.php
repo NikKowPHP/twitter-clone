@@ -34,6 +34,8 @@ Route::post('/tweets/store', [TweetController::class, 'store'])->middleware('aut
 
 Route::post('/tweets/retweet/{tweet}', [RetweetController::class, 'store'])->middleware('auth');
 
+Route::delete('/tweets/retweet/{retweet}', [RetweetController::class, 'destroy'])->middleware('auth');
+
 // redirect to home/welcome page 
 Route::get('/', function () {
     if (Auth::check()) {

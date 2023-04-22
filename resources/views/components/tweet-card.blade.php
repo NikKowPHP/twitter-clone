@@ -52,8 +52,8 @@
                     <div class="post-tool">
 
                            
-                        @if (App\Models\Retweet::hasUserRetweeted(Auth::user()->id, $tweet->id))
-                            <form action="{{'/tweets/retweet/' . $tweet->id}}" method="post">
+                        @if ($retweet = App\Models\Retweet::getUserRetweeted(Auth::user()->id, $tweet->id))
+                            <form action="/tweets/retweet/{{$retweet->id}}" method="post">
                                 @csrf
                                 @method('DELETE')
 
