@@ -43,6 +43,8 @@ Route::delete('/tweets/retweet/{retweet}', [RetweetController::class, 'destroy']
 
 //store follow 
 Route::post('/users/follow/{user}', [FollowController::class, 'store'])->middleware('auth');
+//destroy follow 
+Route::delete('/users/follow/{follow}', [FollowController::class, 'destroy'])->middleware('auth');
 
 // redirect to home/welcome page 
 Route::get('/', function () {
