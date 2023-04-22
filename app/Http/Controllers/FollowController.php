@@ -23,5 +23,11 @@ class FollowController extends Controller
         }
 
     }
+    public function destroy(Follow $follow)
+    {
+        $follow->delete();
+        return redirect()->back();
+
+    }
 
 }
