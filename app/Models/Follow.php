@@ -18,4 +18,10 @@ class Follow extends Model
     {
         return $this->belongsTo(User::class, 'following_user_id');
     }
+    public static function getUserFollowing($userId, $channelId)
+    {
+        return Follow::where('followed_user_id', $userId)
+                    ->where('following_user_id', $channelId)
+                    ->first();
+    }
 }

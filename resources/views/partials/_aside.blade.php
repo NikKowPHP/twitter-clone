@@ -70,32 +70,27 @@
                             <div class="dimmed-text">@ {{ $channel->name }}</div>
                         </div>
                         <div class="follow-btn-container">
+                        @if ($follow = App\Models\Follow::getUserFollowing(Auth::user()->id, $channel->id))
 
-                            {{-- TODO: FOLLOW CLASS --}}
-
-                            {{-- @if ($user->follow($channel_id))
-
-
-                                <form action="/users/follow" method="post">
+                                <form action="/users/follow/ {{$channel->id}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-follow" type="submit">Unfollow</button>
-                                </form> --}}
-																		
-																{{-- @else --}}
-                                <form action="/users/follow" method="post">
-                                    @csrf
-                                    <button class="btn btn-follow" type="submit">Follow</button>
-
                                 </form>
 																		
-														{{-- @endif --}}
+                            @else
+                                <form action="/users/follow/ {{$channel->id}}" method="post">
+                                    @csrf
+                                    <button class="btn btn-follow" type="submit">Follow</button>
+                                </form>
+																		
+							@endif
 
 
                         </div>
                     </div>
                 @endif
-								@endforeach
+			@endforeach
 
             <div class="show-more-btn hashtag">Show more</div>
         </div>
