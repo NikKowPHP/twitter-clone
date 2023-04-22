@@ -25,6 +25,8 @@ Route::post('/users', [UserController::class, 'store']);
 // authenticate user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
+Route::post('/logout', [UserController::class, 'logout']);
+
 // Show home page
 Route::get('/home', [TweetController::class, 'index'])->middleware('auth')->name('users.home');
 

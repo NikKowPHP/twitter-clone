@@ -139,7 +139,7 @@
 
             <div id="sidebar_profile_tooltip" class="tooltip sidebar-profile-tooltip">
                 <a href="#">Add an existing account</a>
-                <form action="/users/logout" method="get">
+                <form action="/logout" method="post">
                     @csrf
                     <button type="submit" class="btn-empty">Log out @ {{ $user->name }}</button>
                 </form>
