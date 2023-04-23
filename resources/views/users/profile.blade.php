@@ -1,8 +1,8 @@
-<?php require_once("partials/header.php") ?>
-<?php require_once("partials/navigation.php") ?>
+@extends('components.layout')
 
-<?php require_once("partials/modals/modal_edit-profile.php") ?>
 
+
+@section('main')
 <div class="content-container">
     <main class="profile-main">
 
@@ -10,7 +10,7 @@
         <div class=" profile-header-top">
 
             <div class="profile-header-top-sticky-wrapper">
-                <a class="home-link" href="index.php">
+                <a class="home-link" href="/home">
                     <svg viewBox="0 0 24 24" aria-hidden="true"
                          class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03">
                         <g>
@@ -19,28 +19,28 @@
                     </svg>
                 </a>
                 <div class="profile-header-top-credentials">
-                    <div class="profile-header-top-username"><?php echo $user->username ?></div>
-                    <!-- TODO: get_all_by_id tweets -->
+                    <div class="profile-header-top-username"> {{$user->name}} </div>
 
-                    <div class="profile-header-top-tweets">8 Tweets</div>
+                    <div class="profile-header-top-tweets">{{ $user->tweets->count() }} Tweets</div>
                 </div>
             </div>
 
             <div class="profile-header-background">
-                <img src="<?= 'images' . DS . $user->getBackgroundImage() ?>" alt="user background">
+                <img src=" {{asset('storage/')}}  " alt="user background">
+                {{-- TODO: $user->background --}}
             </div>
 
 
             <div class="profile-header-user-info">
                 <div class="profile-header-photo-wrapper">
                     <div class="profile-header-photo-container">
-                        <img src="images/<?= $user->image ?>" alt="">
+                        <img src="{{asset('storage/' . $user->image )}}" alt="user image">
                     </div>
                     <button class="btn" id="edit_profile_open">Edit profile</button>
                 </div>
                 <div class="profile-header-user">
-                    <div class="profile-header-top-username"><?= $user->username ?></div>
-                    <div class="profile-header-user-link dimmed-text">@<?= $user->username ?></div>
+                    <div class="profile-header-top-username">{{$user->name}}</div>
+                    <div class="profile-header-user-link dimmed-text">@  {{$user->name}}</div>
                 </div>
                 <div class="profile-header-joined-date dimmed-text">
                     <!-- TODO: USER date  -->
@@ -53,8 +53,8 @@
                     <p>Joined November 2019</p>
                 </div>
                 <div class="profile-header-following-wrapper">
-                    <div class="profile-follow"><span><?= $user->get_following_count() ?></span>Following</div>
-                    <div class="profile-follow"><span><?= $user->get_followers_count() ?></span>Followers</div>
+                    <div class="profile-follow"><span>{{ $user->following->count() }} </span>Following</div>
+                    <div class="profile-follow"><span> {{$user->followers->count() }}</span>Followers</div>
                 </div>
             </div>
 
@@ -67,32 +67,23 @@
         </div>
 
         <section>
-            <?php
-            $tweets = Tweet::get_all_by("user_id", $user->id);
-            ?>
+            @foreach($tweets as $tweet)
 
-            <?php if (!is_null($tweets)): ?>
-                <?php foreach ($tweets as $tweet): ?>
+            <x-tweet-card :tweet="$tweet" :retweets="$retweets" :user="$user" />
 
-                    <?php
-                    $tweet_author = User::get_by_id($tweet->user_id);
-
-
-                    ?>
-
-                    <article class="post">
+                    {{-- <article class="post">
                         <div class="channel-image">
-                            <img src="images/post-1-channel.png" alt=""/>
+                            <img src=" {{asset('storage/'. $tweet->user->image)}} " alt="tweet user image"/>
                         </div>
                         <div class="post-content">
                             <div class="post-header">
                                 <div class="post-header-info">
-                                    <a class="channel-name" href=""><?= $tweet_author->username ?></a>
-                                    <a class="channel-link dimmed-text" href=""
-                                    >@<?= $tweet_author->username ?></a
+                                    <a class="channel-name" href="/users/profile/{{$tweet->user->id}}"> {{$tweet->user->name}}</a>
+                                    <a class="channel-link dimmed-text" href="/users/profile/{{$tweet->user->id}}"
+                                    >@ {{$tweet->user->id}}</a
                                     >
                                     <span class="dimmed-text"> &#183; </span>
-                                    <span class="post-time dimmed-text"><?= $tweet->date; ?></span>
+                                    <span class="post-time dimmed-text"> {{$tweet->createdAt}}</span>
                                 </div>
                                 <div class="post-header-more">
                                     <svg
@@ -111,19 +102,17 @@
                             <div class="post-body">
                                 <div class="post-description">
                                     <p>
-                                        <?= $tweet->body ?>
+                                        {{$tweet->description}}
                                         <span class="link">
-                      https://bit.ly/GrammarLearnEnglish
-                                            <!--                                    TODO: CHANGE LINKS-->
+                                            {{$tweet->tags}}
                     </span>
                                         <span class="hashtag">
-                      #valentinesday #quiz #grammar #learnenglish #LearnEnglish
-                      #learningenglish #englishvocabulary #englishteachers
+                                            {{$tweet->tags}}
                     </span>
                                     </p>
                                 </div>
                                 <div class="post-image">
-                                    <img src="images/<?= $tweet->image ?>" alt=""/>
+                                    <img src="{{asset('storage/' . $tweet->image)}}" alt=""/>
                                 </div>
                                 <div class="post-tools">
                                     <svg
@@ -184,32 +173,18 @@
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </article> --}}
 
 
-                <?php endforeach; ?>
+                @endforeach
 
 
-            <?php endif; ?>
 
 
         </section>
 
         <section>
-            <?php
-            $retweets = Retweet::get_all_by("user_id", $user->id);
-            ?>
-
-            <?php if (!is_null($retweets)): ?>
-                <?php foreach ($retweets as $retweet): ?>
-
-                    <?php
-                    $tweet = Tweet::get_by_id($retweet->getTweetId());
-                    $tweet_author = User::get_by_id($tweet->user_id);
-
-
-                    ?>
-
+                @foreach($retweets as $retweet)
                     <article class="post-wrapper">
                         <div class="retweet-wrapper">
                             <svg viewBox="0 0 24 24" aria-hidden="true"
@@ -224,17 +199,17 @@
 
 
                             <div class="channel-image">
-                                <img src="images/post-1-channel.png" alt=""/>
+                                <img src="{{asset('storage/' . $retweet->tweet->image)}}" alt=""/>
                             </div>
                             <div class="post-content">
                                 <div class="post-header">
                                     <div class="post-header-info">
-                                        <a class="channel-name" href=""><?= $tweet_author->username ?></a>
-                                        <a class="channel-link dimmed-text" href=""
-                                        >@<?= $tweet_author->username ?></a
+                                        <a class="channel-name" href="/users/profile/{{$retweet->user->id}}"></a>
+                                        <a class="channel-link dimmed-text" href="/users/profile/{{$retweet->user->id}}"
+                                        >@ {{$retweet->user->name}}</a
                                         >
                                         <span class="dimmed-text"> &#183; </span>
-                                        <span class="post-time dimmed-text"><?= $tweet->date; ?></span>
+                                        <span class="post-time dimmed-text">{{$retweet->tweet->createdAt}}</span>
                                     </div>
                                     <div class="post-header-more">
                                         <svg
@@ -253,11 +228,11 @@
                                 <div class="post-body">
                                     <div class="post-description">
                                         <p>
-                                            <?= $tweet->body ?>
+                                            {{$retweet->tweet->description}}
                                         </p>
                                     </div>
                                     <div class="post-image">
-                                        <img src="images/<?= $tweet->image ?>" alt=""/>
+                                        <img src="{{asset('storage/'. $retweet->tweet->image)}}" alt="tweet image"/>
                                     </div>
                                     <div class="post-tools">
                                         <svg
@@ -272,19 +247,24 @@
                                             </g>
                                         </svg>
 
-                                        <a href="/twitter-clone/src/includes/retweet_tweet.php?untweet=<?= $retweet->getId() ?>">
-                                        <svg
-                                                viewBox="0 0 24 24"
-                                                aria-hidden="true"
-                                                class="icon-retweet icon-active r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi"
-                                        >
-                                            <g>
-                                                <path
-                                                        d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"
-                                                ></path>
-                                            </g>
-                                        </svg>
-                                        </a>
+                            <form action="/tweets/retweet/{{$retweet->id}}" method="post">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-empty tools-count-wrapper">
+
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"
+                                        class=" icon-active r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi">
+                                        <g>
+                                            <path
+                                                d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                  <span class="tools-count tools-count-active">{{$tweet->retweet()->count()}}</span>
+                                </button>
+                            </form>
+
                                         <svg
                                                 viewBox="0 0 24 24"
                                                 aria-hidden="true"
@@ -323,13 +303,7 @@
                             </div>
                         </div>
                     </article>
-
-
-                <?php endforeach; ?>
-
-
-            <?php endif; ?>
-
+                @endforeach
 
         </section>
 
@@ -341,43 +315,43 @@
                 </div>
                 <div class="channels-wrapper">
 
-                    <?php $channels = User::get_all(); ?>
-                    <?php foreach ($channels as $channel): ?>
-                        <?php if ($channel->id != $user_id = Cookie::get('user_id')): ?>
 
+                    @foreach ($channels as $channel)
 
                             <div class="channel-wrapper">
 
                                 <div class="channel-logo-wrapper">
-                                    <img class="channel-logo" src="images/<?= $channel->image ?>"
-                                         alt="<?= $channel->username; ?> logo"/>
+                                    <img class="channel-logo" src="{{asset('storage/'. $channel->image)}}"
+                                         alt="channel image"/>
                                 </div>
 
                                 <div class="channel-body">
                                     <div class="channel-item channel-info">
-                                        <div class="channel-name"><?= $channel->username ?></div>
-                                        <div class="dimmed-text">@<?= $channel->username ?></div>
+                                        <div class="channel-name"><a href="/users/profile/{{$channel->id}}">{{$channel->name}}</a></div>
+                                        <div class="dimmed-text">@ <a href="/users/profile/{{$channel->id}}">{{$channel->name}}</a></div>
                                     </div>
+                                    @if ($follow = App\Models\Follow::getUserFollowing(Auth::user()->id, $channel->id))
 
-                                    <?php if ($user->is_following($channel->id)): ?>
-                                        <?php
-                                        $arr = ['user_id' => $user_id, 'following' => $channel->id];
-                                        $follow = Follow::get_by($arr);
-                                        ?>
-                                        <a href="src/includes/following_user.php?unfollow=<?= $follow->id ?>"
-                                           class="btn follow-btn">Unfollow</a>
-                                    <?php else: ?>
-                                        <a href="src/includes/following_user.php?follow=<?= $channel->id ?>"
-                                           class="btn follow-btn">Follow</a>
-                                    <?php endif; ?>
+                                        <form action="/users/follow/ {{ $follow->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-follow" type="submit">Unfollow</button>
+                                        </form>
+																		
+                        @else
+                                <form action="{{ '/users/follow/'. $channel->id }}" method="post">
+                                    @csrf
+                                    <button class="btn btn-follow" type="submit">Follow</button>
+                                </form>
+																		
+						@endif
                                     <!--                            TODO:CHANNEL DESCRIPTION $USER->DESCRIPTION-->
                                     <div class="channel-item channel-description">Daily tips on PHP</div>
 
                                 </div>
                             </div>
+                        @endforeach
 
-                        <?php endif; ?>
-                    <?php endforeach; ?>
 
                 </div>
 
@@ -387,6 +361,4 @@
         </section>
     </main>
 
-    <?php require_once("partials/aside.php") ?>
-    <?php require_once("partials/footer.php") ?>
 
