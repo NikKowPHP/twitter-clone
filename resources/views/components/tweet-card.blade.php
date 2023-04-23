@@ -8,8 +8,8 @@
         <div class="post-content">
             <div class="post-header">
                 <div class="post-header-info">
-                    <a class="channel-name" href="/users/{{ $tweet->user->id }}"> {{ $tweet->user->name }}</a>
-                    <a class="channel-link dimmed-text" href="/users/{{ $tweet->user->id }}">@ {{ $tweet->user->name }}</a>
+                    <a class="channel-name" href="/users/profile/{{ $tweet->user->id }}"> {{ $tweet->user->name }}</a>
+                    <a class="channel-link dimmed-text" href="/users/profile/{{ $tweet->user->id }}">@ {{ $tweet->user->name }}</a>
                     <span class="dimmed-text"> &#183; </span>
                     <span class="post-time dimmed-text"> {{ $tweet->createdAt }} </span>
                 </div>
