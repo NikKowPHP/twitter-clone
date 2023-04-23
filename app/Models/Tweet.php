@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Tweet extends Model
 {
-    protected $fillable = ['title', 'description', 'user_id', 'tags'];
+    protected $fillable = ['title','image', 'description', 'user_id', 'tags'];
 
     use HasFactory;
 
