@@ -31,6 +31,8 @@ Route::post('/logout', [UserController::class, 'logout']);
 
 // Show home page
 Route::get('/home', [TweetController::class, 'index'])->middleware('auth')->name('users.home');
+// Show user profile page
+Route::get('/users/profile/{user}', [UserController::class, 'profile'])->middleware('auth')->name('users.profile');
 
 //store tweet
 Route::post('/tweets/store', [TweetController::class, 'store'])->middleware('auth');
