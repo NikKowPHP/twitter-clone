@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Tweet;
 use App\Models\Retweet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,16 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/welcome');
+    }
+
+    //Show user profile
+    public function profile(Request $request)
+    {
+        $user = User::find($request->route()->parameter('user'));
+        $tweets = Tweet::with('user')->get();
+        $channels = User::excludeAuth()->get();
+        $retweets = $user->retweets;
+        return view('users.profile', ['user' => $user, 'tweets' => $tweets, 'channels' => $channels, 'retweets' => $retweets]);
     }
 
 }
