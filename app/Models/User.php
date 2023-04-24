@@ -64,4 +64,13 @@ class User extends Authenticatable
         return $query->whereNotIn('id', [Auth::user()->id]);
 
     }
+    public function getRetweetedTweets()
+    {
+        $userRetweets = $this->retweets;
+        $retweetsObj = [];
+        foreach($userRetweets as $userRetweet) {
+            $retweetsObj[] = Tweet::find($userRetweet['tweet_id']);
+        }
+        return $retweetsObj;
+    }
 }
