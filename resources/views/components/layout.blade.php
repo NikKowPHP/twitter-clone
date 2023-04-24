@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/header.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/sidebar.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/profile.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/aside.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/footer.css') }}" />
     <link rel="stylesheet" href="{{ URL::asset('css/modal.css') }}" />
@@ -30,11 +31,9 @@
       @include('partials._navigation')
     </header>
 
-<div class="content-container">
     <main>
       @yield('main')
     </main>
-</div>
 
     <aside>
       @include('partials._aside')
