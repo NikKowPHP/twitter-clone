@@ -61,9 +61,9 @@ class UserController extends Controller
     public function profile(Request $request)
     {
         $user = User::find($request->route()->parameter('user'));
-        $tweets = Tweet::with('user')->get();
+        $tweets = Tweet::where('user_id', $user->id)->with('user')->get();
         $channels = User::excludeAuth()->get();
-        $retweets = $user->retweets;
+        $retweets = $user->getRetweetedTweets();
         return view('users.profile', ['user' => $user, 'tweets' => $tweets, 'channels' => $channels, 'retweets' => $retweets]);
     }
 
