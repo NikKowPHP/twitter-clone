@@ -28,7 +28,7 @@
 	    @unless (count($tweets) == 0)
             @foreach($tweets as $tweet)
 
-            <x-tweet-card :tweet="$tweet" :retweets="$retweets" :user="$user"/>
+            <x-card :tweet="$tweet" :retweets="$retweets" :user="$user"/>
 
             @endforeach
         @else
