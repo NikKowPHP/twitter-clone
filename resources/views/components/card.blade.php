@@ -1,6 +1,3 @@
-<article class="post">
-
-
 	@if($isRetweeted === true)
     <div class="retweet-wrapper">
         
@@ -16,6 +13,9 @@
 
     </div>
 		@endif
+<article class="post">
+
+
 
 
 
