@@ -68,7 +68,7 @@
         <section>
             @foreach($tweets as $tweet)
 
-                <x-card :tweet="$tweet" :user="$user" />
+                <x-card :tweet="$tweet" :user="$user"  />
 
             @endforeach
         </section>
@@ -76,11 +76,8 @@
         <section>
 
                 @foreach($retweets as $retweet)
-                @php
-                    $userRetweeted = true;
-                @endphp
 
-                <x-card :tweet="$retweet" :user="$user" userRetweeted={{'true'}}  />
+                <x-card :tweet="$retweet" :user="$user" :isRetweeted="true"  />
 
                 @endforeach
 

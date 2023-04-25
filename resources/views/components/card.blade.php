@@ -1,7 +1,9 @@
 <article class="post">
-    @dd($userRetweeted)
-	@if($userRetweeted === true)
+
+
+	@if($isRetweeted === true)
     <div class="retweet-wrapper">
+        
         <svg viewBox="0 0 24 24" aria-hidden="true"
             class="r-14j79pv r-4qtqp9 r-yyyyoo r-10ptun7 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1janqcz">
             <g>

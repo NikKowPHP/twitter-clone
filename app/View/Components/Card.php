@@ -10,17 +10,17 @@ class Card extends Component
 {
     public $tweet;
     public $user;
-    public $userRetweeted;
+    public $isRetweeted;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($tweet, $user, $userRetweeted = false)
+    public function __construct($tweet, $user, $isRetweeted= false)
     {
 
         $this->tweet = $tweet;
         $this->user = $user;
-        $this->userRetweeted;
+        $this->isRetweeted = $isRetweeted;
     }
 
     /**
