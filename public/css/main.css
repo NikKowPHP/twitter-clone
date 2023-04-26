@@ -187,6 +187,7 @@ section {
 }
 .tools-count {
     font-size: 14px;
+    padding-top:2px;
 }
 .tools-count-active {
     color: rgb(100,190,130);
@@ -244,6 +245,8 @@ section {
 .icon-active {
     fill: rgb(100,190,130);
 }
-
+.tools-count-wrapper {
+    display:flex;
+}
 
 

@@ -22,4 +22,9 @@ class RetweetController extends Controller
         }
 
     }
+    public function destroy(Retweet $retweet) 
+    {
+        $retweet->delete();
+        return redirect()->back();
+    }
 }

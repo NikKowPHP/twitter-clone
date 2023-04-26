@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Follow extends Model
 {
     use HasFactory;
+    protected $fillable = ['followed_user_id', 'following_user_id'];
 
 
     public function followedUser()
@@ -17,5 +18,11 @@ class Follow extends Model
     public function followingUser()
     {
         return $this->belongsTo(User::class, 'following_user_id');
+    }
+    public static function getUserFollowing($userId, $channelId)
+    {
+        return Follow::where('followed_user_id', $userId)
+                    ->where('following_user_id', $channelId)
+                    ->first();
     }
 }

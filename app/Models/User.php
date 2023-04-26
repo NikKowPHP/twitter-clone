@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -47,8 +48,9 @@ class User extends Authenticatable
     }
     public function retweets()
     {
-        return $this->hasMany(Retweet::class);
+        return $this->hasMany(Retweet::class, 'user_id');
     }
+
     public function followers()
     {
         return $this->hasMany(Follow::class, 'followed_user_id');
@@ -56,5 +58,19 @@ class User extends Authenticatable
     public function following()
     {
         return $this->hasMany(Follow::class, 'following_user_id');
+    }
+
+    public function scopeExcludeAuth($query) {
+        return $query->whereNotIn('id', [Auth::user()->id]);
+
+    }
+    public function getRetweetedTweets()
+    {
+        $userRetweets = $this->retweets;
+        $retweetsObj = [];
+        foreach($userRetweets as $userRetweet) {
+            $retweetsObj[] = Tweet::find($userRetweet['tweet_id']);
+        }
+        return $retweetsObj;
     }
 }
