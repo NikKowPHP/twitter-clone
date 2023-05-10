@@ -1,0 +1,158 @@
+
+.profile-header-top-sticky-wrapper {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.profile-header-top {
+    border-bottom: 1px solid rgba(92, 92, 92, 0.11);
+}
+.profile-header-top-sticky-wrapper .home-link {
+    padding-left: 20px;
+}
+.profile-header-top svg {
+    width: 20px;
+}
+.profile-header-top-credentials {
+    margin-left: 30px;
+}
+.profile-header-top-username {
+    font-size: 20px;
+    font-weight: 700;
+
+}
+.profile-header-top-tweets {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgb(144,155,163);
+}
+.profile-header-background {
+    padding-left: 0px !important;
+    width: 100%;
+    height: 200px;
+}
+.profile-header-background img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.profile-header-user-info {
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.profile-header-photo-wrapper {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+.profile-header-photo-container {
+    position: relative;
+    border-radius: 50%;
+}
+.profile-header-photo-wrapper img {
+    position: absolute;
+    object-position: center center;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    top: -100px;
+}
+.profile-header-user-link {
+    font-size: 15px;
+}
+.profile-header-joined-date {
+    font-size: 15px;
+}
+.profile-header-following-wrapper {
+    display: flex;
+    font-size: 15px;
+
+}
+
+.profile-header-following-wrapper .profile-follow span{
+    font-size: 700;
+}
+.profile-header-user {
+    padding-top: 30px;
+}
+.profile-header-joined-date {
+    display: flex;
+
+}
+.profile-header-joined-date svg {
+    margin-right: 5px;
+}
+.profile-follow span {
+    margin-right: 5px;
+    font-weight: 700;
+}
+.profile-follow {
+    margin-right: 15px;
+}
+
+/*PROFILE WHO TO FOLLOW SECTION*/
+
+.profile-section-header {
+    padding-bottom: 30px;
+}
+.profile-section-header h6 {
+    font-size: 20px;
+}
+.profile-who-to-follow-section {
+    padding: 15px 15px 30px 15px;
+    border-left: 1px solid rgba(92, 92, 92, 0.11);
+}
+.channels-wrapper {
+    padding-bottom: 15px;
+}
+
+.channel-wrapper {
+   display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.retweet-wrapper {
+    flex: 1;
+    display: flex;
+    padding-top: 5px;
+    padding-left: 60px;
+
+}
+.retweet-wrapper svg {
+    width: 15px;
+    margin-right: 10px;
+
+}
+.retweet-caution {
+    font-size: 13px;
+    font-weight: bold;
+}
+.channel-logo-wrapper {
+    width: 55px;
+    margin-right: 15px;
+}
+.channel-logo {
+    padding-top: 2px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.channel-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: end;
+}
+.channel-info,
+.channel-description{
+    justify-self: start;
+}
+
+
+/*PROFILE WHO TO FOLLOW SECTION END*/

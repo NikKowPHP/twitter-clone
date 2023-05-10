@@ -1,0 +1,215 @@
+.sidebar-nav {
+    position: sticky;
+    font-size: 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.103);
+}
+@media (max-width: 1350px) {
+
+    .sidebar-nav {
+        left: 30px;
+    }
+}
+@media (max-width: 1015px) {
+    header {
+        display: flex;
+    }
+    .sidebar-nav {
+        left: 100px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+    }
+
+}
+@media (max-width: 1200px) {
+    .sidebar-nav {
+        left: 30px;
+        width: 70px;
+    }
+    .nav-links-container span {
+        display: none;
+    }
+
+    .nav-links-container a svg {
+        margin: 0 !important;
+    }
+    .profile-info,
+    .sidebar-profile-more svg{
+        display: none;
+    }
+#small-tweet-btn {
+    display: flex !important;
+}
+    #big-tweet-btn {
+        display: none;
+    }
+}
+
+.nav-links-container{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    align-content: center;
+    margin-bottom: 20px;
+}
+.sidebar-logo a {
+   padding: 11px 13px; 
+   width: 27px;
+   border-radius: 30px;
+   display: flex;
+   transition: background-color 0.15s;
+}
+.sidebar-logo svg {
+    fill:rgb(29, 155, 240);
+}
+.nav-links-container a svg {
+    height: 27px;
+    margin-right: 20px;
+}
+.sidebar-logo a:hover {
+    background-color:rgba(29, 155, 240, 0.10);
+}
+.sidebar-logo {
+    margin-bottom: 15px;
+}
+
+.nav-links-container a {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    transition: background-color 0.15s;
+}
+.nav-links-container img {
+    height: 27px;
+    margin-right: 20px;
+}
+.nav-links-container a:hover {
+    background-color:rgba(15, 20, 25, 0.1);
+}
+.sidebar-nav-home {
+    font-weight: 700;
+}
+.sidebar-nav-tweet-btn {
+    margin-bottom: 40px;
+}
+ #big-tweet-btn{
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 15px 80px;
+    background-color: rgb(29, 155, 240);
+    border-radius: 25px;
+    transition: background-color 0.20s;
+}
+#small-tweet-btn {
+    /* display: flex; */
+    display: none;
+    background-color: rgb(29, 155, 240);
+    padding: 14px;  
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    border-radius: 50%;
+}
+
+#small-tweet-btn svg {
+    width: 24px;
+    fill: white;
+}
+.sidebar-nav-tweet-btn a:hover,
+#small-tweet-btn:hover {
+    background-color: rgb(29, 131, 199);
+}
+.sidebar-profile-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 25px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.sidebar-profile-container:hover {
+    background-color:rgba(15, 20, 25, 0.1);
+}
+.sidebar-active {
+    background-color:rgba(15, 20, 25, 0.1);
+}
+.profile-info p {
+    margin: 0;
+}
+
+.sidebar-profile-image-container {
+    margin-right: 12px;
+    margin-left: 8px;
+}
+.sidebar-profile-image-container img {
+    width: 40px;
+    border-radius: 30px;
+}
+.sidebar-profile-more {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 15px;
+}
+.sidebar-profile-more svg{
+    width: 18.75px;
+}
+.sidebar-profile-name {
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+.show-more {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+
+
+/* sidebar-profile-tooltip */
+
+.sidebar-profile-tooltip {
+  position: absolute;
+  background-color: white;
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  top:-120px;
+  left: -30px;
+  width: 300px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.sidebar-profile-tooltip::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    left: 45%;
+    box-sizing: border-box;
+    border: 1em solid black;
+    border-color: transparent transparent white white;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-profile-tooltip a {
+    display: block;
+    padding:15px 60px 15px 15px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.sidebar-profile-tooltip a:hover {
+    background-color:rgba(223, 223, 223, 0.253);
+}

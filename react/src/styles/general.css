@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    /*padding-left: 400px;*/
+    font-family: 'Chirp', sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 900px) {
+
+}
+a {
+    font-family: 'Chirp', sans-serif;
+    text-decoration: none;
+    color:inherit;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+.btn {
+    box-sizing: border-box;
+    font-family: "Chirp";
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 15px;
+    background-color: rgb(29, 155, 240);
+    border-radius: 20px;
+    transition: background-color 0.20s;
+}
+
+.btn:hover {
+    background-color: rgb(29, 131, 199);
+}
+.btn-disabled {
+    background-color: rgb(142,205,248);
+    
+}
+.btn-empty {
+    background-color: transparent;
+    border: none;
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+.btn-empty:hover {
+    background-color: transparent;
+}
+.dimmed-text {
+    color:rgb(120,134,144);
+}
+.link, .hashtag {
+    color: rgb(72,174,243);
+}
+.link, .hashtag:hover {
+    text-decoration: underline;
+}
+.content-container {
+    display: flex;
+}
+.hidden {
+    display: none;
+}
