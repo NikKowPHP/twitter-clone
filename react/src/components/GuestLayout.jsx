@@ -1,17 +1,39 @@
 import React, { useState } from "react";
+import {createPortal} from 'react-dom'
 import { Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import styles from "../assets/styles";
 import  Nav  from "./guestLayout/GuestNav";
 import  SearchBar from "./guestLayout/SearchBar";
+import Modal from "../views/modals/Modal";
+import Login from "../views/modals/Login";
+import Signup from "../views/modals/Signup";
 
 export default function GuestLayout() {
   const { token } = useStateContext();
+
   if (token) {
     return <Navigate to="/home" />;
   }
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenLoginModal = () => {
+    setIsModalOpen(true);
+  }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  }
+
+
+
   return (
     <>
+       
+        <Modal  isOpen={isModalOpen} onClose={handleCloseModal}>
+          <Login />
+        </Modal>
+
       <Outlet />
       <header>
         <Nav />
@@ -175,8 +197,8 @@ export default function GuestLayout() {
         <div className="login-footer-links">
           <button
             className="btn login-btn"
-            data-toggle="modal"
-            data-target="#modal-login"
+            onClick={handleOpenLoginModal}
+
           >
             Log in
           </button>
@@ -185,6 +207,8 @@ export default function GuestLayout() {
           </a>
         </div>
       </footer>
+
+      
 
     </>
   );
