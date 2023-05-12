@@ -10,6 +10,7 @@
     background-color: #00000069;
 }
 .modal-content {
+    color: black;
     position: relative;
     background-color: #fefefe;
     margin: 10% auto;

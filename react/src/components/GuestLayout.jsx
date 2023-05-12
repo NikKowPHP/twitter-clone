@@ -30,9 +30,6 @@ export default function GuestLayout() {
   return (
     <>
        
-        <Modal  isOpen={isModalOpen} onClose={handleCloseModal}>
-          <Login />
-        </Modal>
 
       <Outlet />
       <header>
@@ -195,6 +192,8 @@ export default function GuestLayout() {
           <p>Twitter users are the first to know.</p>
         </div>
         <div className="login-footer-links">
+
+
           <button
             className="btn login-btn"
             onClick={handleOpenLoginModal}
@@ -202,6 +201,11 @@ export default function GuestLayout() {
           >
             Log in
           </button>
+
+        <Modal  isOpen={isModalOpen} onClose={handleCloseModal}>
+          <Login />
+        </Modal>
+
           <a href="#" id="register_modal" className="btn register-btn">
             register
           </a>
