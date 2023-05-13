@@ -2,15 +2,14 @@ import React, { useRef } from "react";
 import { createPortal } from 'react-dom'
 
 const Modal = ({ isOpen, onClose, children }) => {
-  // if (!isOpen) return null;
-  const modalRef = useRef;
+  if (!isOpen) return null;
   return (
     <div className="modal">
       <div className="modal-content modal-content-register">
         <button
           type="button"
           className="close btn-empty"
-          onClose={onClose}
+          onClick={onClose}
         >
           <span class="close" aria-hidden="true">
             &times;
