@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-import { ReactDOM } from 'react'
-import Modal from './Modal'
+import React from 'react'
 
 export default function Login() {
 	return (
