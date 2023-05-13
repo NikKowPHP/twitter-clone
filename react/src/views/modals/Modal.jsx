@@ -11,7 +11,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           className="close btn-empty"
           onClick={onClose}
         >
-          <span class="close" aria-hidden="true">
+          <span className="close" aria-hidden="true">
             &times;
           </span>
         </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {createPortal} from 'react-dom'
+import {createPortal} from 'react-dom';
 import { Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import styles from "../assets/styles";
@@ -8,6 +8,7 @@ import  SearchBar from "./guestLayout/SearchBar";
 import Modal from "../views/modals/Modal";
 import Login from "../views/modals/Login";
 import Signup from "../views/modals/Signup";
+import Welcome from "../views/modals/Welcome";
 
 export default function GuestLayout() {
   const { token } = useStateContext();
@@ -17,13 +18,24 @@ export default function GuestLayout() {
   }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalRegisterOpen, setIsModalRegisterOpen] = useState(false);
+  const [isModalCreateOpen, setIsModalCreateOpen] = useState(false);
 
   const handleOpenLoginModal = () => {
     setIsModalOpen(true);
+    return <Navigate to="/login" />
   }
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    history.push('/welcome')
   }
+  const handleOpenRegisterModal = () => {
+    setIsModalRegisterOpen(true);
+  }
+  const handleCloseRegisterModal = () => {
+    setIsModalRegisterOpen(false);
+  }
+  
 
 
 
@@ -155,8 +167,7 @@ export default function GuestLayout() {
                   <div className="channel-name">
                     <button
                       className="btn btn-empty"
-                      data-toggle="modal"
-                      data-target="#modal-welcome"
+                      onClick={() => setIsModalCreateOpen(true) }
                     >
                       Create an account
                     </button>
@@ -202,15 +213,28 @@ export default function GuestLayout() {
             Log in
           </button>
 
+
+          <button
+            className="btn register-btn"
+            onClick={handleOpenRegisterModal}
+
+          >
+           register 
+          </button>
+
+
+        </div>
+      </footer>
         <Modal  isOpen={isModalOpen} onClose={handleCloseModal}>
           <Login />
         </Modal>
+        <Modal  isOpen={isModalRegisterOpen} onClose={handleCloseRegisterModal}>
+          <Signup/>
+        </Modal>
 
-          <a href="#" id="register_modal" className="btn register-btn">
-            register
-          </a>
-        </div>
-      </footer>
+        <Modal isOpen={isModalCreateOpen} onClose={() => setIsModalCreateOpen(false)} >
+          <Welcome />
+        </Modal>
 
       
 
