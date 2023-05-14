@@ -27,7 +27,6 @@ export default function GuestLayout() {
   }
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    history.push('/welcome')
   }
   const handleOpenRegisterModal = () => {
     setIsModalRegisterOpen(true);
