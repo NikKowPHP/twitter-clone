@@ -10,11 +10,10 @@ import styles from "../assets/styles";
 
 export default function GuestLayout() {
   const { token } = useStateContext();
-	console.log(token);	
 
-  // if (!token) {
-  //   return <Navigate to="/" />;
-  // }
+  if (!token) {
+    return <Navigate to="/" />;
+  }
 
   
 
