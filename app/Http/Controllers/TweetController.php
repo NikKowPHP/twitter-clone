@@ -30,7 +30,7 @@ class TweetController extends Controller
             'description' => 'required',
         ]);
         $formFields['title'] = 'nig';
-        $formFields['tags'] = 'lationo, lsdfj';
+        $formFields['tags'] = 'laravel, javascript';
 
         if($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('images', 'public');
